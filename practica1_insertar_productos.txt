@@ -1,0 +1,100 @@
+{
+  "_id": "SKU-001",
+  "nombre": "Portátil Pro-Book X1",
+  "marca": "TecnoÁgora Devices",
+  "categoria": "Portátiles",
+  "precio": 1199.99,
+  "stock": 25,
+  "especificaciones": {
+    "cpu": "Intel Core i7-12700H",
+    "ram": 16,
+    "pantalla": "15.6 pulgadas Full HD"
+  },
+  "tags": ["gaming", "16GB RAM", "oferta"],
+  "reviews": [
+    {
+      "usuario": "LauraG",
+      "puntuacion": 5,
+      "comentario": "Excelente rendimiento, muy rápido."
+    },
+    {
+      "usuario": "CarlosM",
+      "puntuacion": 4,
+      "comentario": "Buen portátil, aunque algo pesado."
+    }
+  ]
+}
+
+
+
+
+
+{
+  "_id": "SKU-002",
+  "nombre": "Tablet AlphaTab 10",
+  "marca": "SmartTech",
+  "categoria": "Tablets",
+  "precio": 299.99,
+  "stock": 3,
+  "especificaciones": {
+    "cpu": "MediaTek MT8768",
+    "ram": 4,
+    "pantalla": "10.1 pulgadas HD"
+  },
+  "tags": ["tablet", "oferta", "ligera"],
+  "reviews": [
+    {
+      "usuario": "AnaP",
+      "puntuacion": 4,
+      "comentario": "Ideal para ver películas y navegar."
+    }
+  ]
+}
+
+
+
+
+
+{
+  "_id": "SKU-003",
+  "nombre": "Smartphone VisionX",
+  "marca": "MobiCore",
+  "categoria": "Smartphones",
+  "precio": 599.99,
+  "stock": 2,
+  "especificaciones": {
+    "cpu": "Snapdragon 870",
+    "ram": 8,
+    "pantalla": "6.5 pulgadas AMOLED"
+  },
+  "tags": ["smartphone", "AMOLED", "oferta"],
+  "reviews": [
+    {
+      "usuario": "JorgeR",
+      "puntuacion": 5,
+      "comentario": "Relación calidad-precio excelente."
+    }
+  ]
+}
+
+
+
+
+
+
+
+{
+  "_id": "SKU-004",
+  "nombre": "Monitor UltraView 27",
+  "marca": "ViewTech",
+  "categoria": "Monitores",
+  "precio": 229.99,
+  "stock": 10,
+  "especificaciones": {
+    "cpu": null,
+    "ram": null,
+    "pantalla": "27 pulgadas QHD"
+  },
+  "tags": ["monitor", "QHD", "trabajo"],
+  "reviews": []
+}
