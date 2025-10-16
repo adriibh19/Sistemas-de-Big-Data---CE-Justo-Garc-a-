@@ -19,6 +19,7 @@ db.productos.find({
   categoria: "Portátiles",
   marca: "TecnoÁgora Devices",
   "especificaciones.ram": { $gt: 8 }
+})
 ```
 
 
@@ -39,7 +40,7 @@ Encontraremos todos los productos que contengan la palabra **"oferta"** dentro d
 
 ```js
 db.productos.find({ tags: "oferta" });
-})
+
 ```
 
 
@@ -94,7 +95,7 @@ Agregaremos una nueva reseña a un producto existente (por ejemplo, **"Portátil
 
 ```js
 db.productos.updateOne(
-  { nombre: "Portátil Pro-Book X1" },  // Filtro para localizar el producto
+  { nombre: "Portátil Pro-Book X1" },  
   {
     $push: {
       reviews: {
