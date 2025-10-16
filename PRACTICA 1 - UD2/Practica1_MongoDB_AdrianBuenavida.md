@@ -23,7 +23,7 @@ db.productos.find({
 
 
 ### Captura de pantalla de comprobación
-![ Comprobacion del ej 1](primer_ej.png)
+![ Comprobacion del ej 1](./imagenes/primer_ej.png)
 
 
 
@@ -44,7 +44,7 @@ db.productos.find({ tags: "oferta" });
 
 
 ### Captura de pantalla de comprobación
-![ Comprobacion del ej 2](2ej.png)
+![ Comprobacion del ej 2](./imagenes/2ej.png)
 
 
 
@@ -70,7 +70,7 @@ db.productos.updateOne(
 
 
 ### Captura de pantalla de comprobación
-![ Comprobacion del ej 3](ej3.png)
+![ Comprobacion del ej 3](./imagenes/ej3.png)
 
 
 
@@ -113,9 +113,9 @@ db.productos.updateOne(
 
 
 ### Captura de pantalla de comprobación
-![ Comprobacion del ej 4](ej4.png)
+![ Comprobacion del ej 4](./imagenes/ej4.png)
 <br>
-![ Comprobacion del ej 4](ej4_2.png)
+![ Comprobacion del ej 4](./imagenes/ej4_2.png)
 
 
 
@@ -176,7 +176,7 @@ Primero, tenemos que crear la colección `productos` con documentos que contiene
 
 
 ### Captura de pantalla de comprobación
-![ Compribacion del pto 1](1ª_capt.png)
+![ Compribacion del pto 1](./imagenes/1ª_capt.png)
 
 
 
@@ -199,7 +199,7 @@ db.productos.find({}, { nombre: 1, precio: 1, _id: 0 })
 ```
 
 ### Captura de pantalla de comprobación
-![ Compribacion del pto 2](2acapt.png)
+![ Compribacion del pto 2](./imagenes/2acapt.png)
 
 
 
@@ -222,8 +222,8 @@ db.productos.deleteOne({ _id: "SKU-001" })
 
 
 ### Captura de pantalla de comprobación
-![ Compribacion del pto 3](3ªcapt.png)
-![ Compribacion del pto 3](4ªcapt.png)
+![ Compribacion del pto 3](./imagenes/3ªcapt.png)
+![ Compribacion del pto 3](./imagenes/4ªcapt.png)
 
 
 
