@@ -54,7 +54,7 @@ db.productos.find({ tags: "oferta" });
 
 ### Objetivo del 3er ejercicio
 
-Deseamos actualizar el stock del producto **"Portátil Pro-Book X1"** incrementándolo en 10 unidades. Para ello, utilizamos el operador `$inc` de MongoDB que permite aumentar (o disminuir) el valor numérico de un campo.
+Vamos a actualizar el stock del producto **"Portátil Pro-Book X1"** incrementándolo en 10 unidades. Para ello, utilizamos el operador `$inc` de MongoDB que permite aumentar (o disminuir) el valor numérico de un campo.
 
 
 
@@ -85,7 +85,7 @@ db.productos.updateOne(
 
 ### Objetivo del 4º ejercicio
 
-Se desea agregar una nueva reseña a un producto existente (por ejemplo, **"Portátil Pro-Book X1"**). La reseña debe contener el nombre del usuario, una puntuación y un comentario.
+Agregaremos una nueva reseña a un producto existente (por ejemplo, **"Portátil Pro-Book X1"**). La reseña debe contener el nombre del usuario, una puntuación y un comentario.
 
 
 
