@@ -9,7 +9,7 @@
 
 ### Objetivo del 1er ejercicio
 
-Deseamos obtener todos los productos cuya categoría sea **"Portátiles"**, que pertenezcan a la marca **TecnoÁgora Devices** y cuya memoria RAM sea superior a 8GB.
+Vamos a obtener todos los productos cuya categoría sea **"Portátiles"**, que pertenezcan a la marca **TecnoÁgora Devices** y cuya memoria RAM sea superior a 8GB.
 
 
 ### Consulta
@@ -33,7 +33,7 @@ db.productos.find({
 
 ### Objetivo del 2º ejercicio
 
-Deseamos encontrar todos los productos que contengan la palabra **"oferta"** dentro del campo **tags**.
+Encontraremos todos los productos que contengan la palabra **"oferta"** dentro del campo **tags**.
 
 ### Consulta
 
