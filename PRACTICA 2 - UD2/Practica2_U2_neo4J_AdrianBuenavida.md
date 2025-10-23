@@ -200,7 +200,7 @@ CREATE
 
 
 ## Esquema (captura de pantalla)
-Lo que he hecho, ha sido eliminar el grafo del ej 1 el cual no habia que hacer y solo he dejado este del ej 2.
+Lo que he hecho, ha sido eliminar el grafo del ej 1 el cual no había que hacer y solo he dejado este del ej 2, para que se vea mejor.
 
 MATCH (n)
 DETACH DELETE n;
@@ -211,7 +211,46 @@ Usamos la siguiente consulta y vemos el gráfico:
 MATCH (n)-[r]->(m)
 RETURN n, r, m;
 
-![ Comprobacion del ej 1](./imagenes/2.png)
+![ Comprobacion del ej 2](./imagenes/2.png)
 
 
 <br><br>
+
+
+
+## EJERCICIO 3: Encontrar Amigos y Seguidores
+
+### Objetivo del 3er ejercicio
+
+Realizar consultas Cypher para identificar las relaciones de seguimiento entre usuarios en la red social.  
+Se busca extraer:  
+- Todos los usuarios que un usuario específico sigue.  
+- Todos los usuarios que siguen a un usuario específico.
+
+---
+
+## Consultas Cypher
+
+#### Usuarios que sigue un usuario específico
+
+Consulta para obtener todos los usuarios que sigue `Alice` (username: "alice01"):
+
+```cypher
+MATCH (alice:User {username: "alice01"})-[:FOLLOWS]->(followed)
+RETURN followed.username AS Username, followed.name AS Name;
+```
+#### capt de comprobación
+![ Comprobac](./imagenes/3.png)
+
+
+
+<br>
+Consulta para obtener todos los usuarios que siguen a Bob (username: "bob99"):
+
+```cypher
+MATCH (follower)-[:FOLLOWS]->(bob:User {username: "bob99"})
+RETURN follower.username AS Username, follower.name AS Name;
+```
+
+#### capt de comprobación
+![ Comprobac](./imagenes/4.png)
