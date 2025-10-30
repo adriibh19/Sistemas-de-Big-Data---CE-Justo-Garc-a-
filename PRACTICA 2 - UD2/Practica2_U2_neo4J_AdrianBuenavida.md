@@ -7,14 +7,14 @@
 
 ### Objetivo del 1er ejercicio
 
-En este primer ejercicio se busca **diseñar un modelo de datos de grafo** que represente a los usuarios y sus interacciones dentro de una red social.  
+En este primer ejercicio buscamos **diseñar un modelo de datos de grafo** que represente a los usuarios y sus interacciones dentro de una red social.  
 Para mi gusto, voy a crear ya algunos nodos (aunque no haga falta aquí) y tal para poder ver la comprobación gráfica al final del ej.
 
 
 
 ## Descripción del modelo
 
-El modelo propuesto permite representar una red social en la que los **usuarios** pueden crear publicaciones, seguir a otros usuarios y dar “me gusta” a publicaciones.
+Con el modelo propuesto representamos una red social en la que los **usuarios** pueden crear publicaciones, seguir a otros usuarios y dar “me gusta” a publicaciones.
 
 
 
@@ -138,7 +138,7 @@ RETURN n, r, m;
 
 ### Objetivo del 2º ejercicio
 
-En este ejercicio se deben crear nodos y relaciones iniciales en la base de datos utilizando Cypher (que ya lo he usadoa nteriormente sin tenmerlo que hacer) 
+En este ejercicio tendemos que crear nodos y relaciones iniciales en la base de datos utilizando Cypher (que ya lo he usadoa nteriormente sin tenmerlo que hacer) 
 
 Se trata de representar usuarios, sus publicaciones y las interacciones básicas como seguir a otros usuarios y dar “me gusta” a publicaciones.
 
@@ -149,7 +149,7 @@ Se trata de representar usuarios, sus publicaciones y las interacciones básicas
 
 ### Crear nodos --> User
 
-Se crean tres usuarios con propiedades `username` (único), `name` y `registration_date`:
+Creamos tres usuarios con propiedades `username` (único), `name` y `registration_date`:
 
 ```cypher
 CREATE
@@ -173,7 +173,7 @@ CREATE
 
 ## Crear posts y relaciones --> POSTED
 
-Se crean dos posts y se relacionan con sus autores:
+Creamos dos posts y se relacionan con sus autores:
 
 CREATE
   (post1:Post {content: "Estoy aprendiendo Neo4j y me encanta.", timestamp: datetime("2025-10-20T09:30:00")}),
@@ -222,8 +222,8 @@ RETURN n, r, m;
 
 ### Objetivo del 3er ejercicio
 
-Realizar consultas Cypher para identificar las relaciones de seguimiento entre usuarios en la red social.  
-Se busca extraer:  
+Realizamos consultas Cypher para identificar las relaciones de seguimiento entre usuarios en la red social.  
+buscamos extraer:  
 - Todos los usuarios que un usuario específico sigue.  
 - Todos los usuarios que siguen a un usuario específico.
 
@@ -254,3 +254,89 @@ RETURN follower.username AS Username, follower.name AS Name;
 
 #### capt de comprobación
 ![ Comprobac](./imagenes/4.png)
+
+
+
+---
+
+## EJERCICIO 4: Analizando Posts e Interacciones
+
+### Objetivo del 4º ejercicio
+
+En este ejercicio buscamos analizar las publicaciones e interacciones de los usuarios dentro de la red social.
+El objetivo es practicar consultas Cypher que nos permitan visualizar tanto las publicaciones creadas por un usuario como aquellas en las que ha interactuado mediante “likes”
+
+### Consultas Cypher
+
+#### Posts creados por un *usuario específico*
+En esta primera consulta obtenemos todas las publicaciones creadas por Alice (username: "alice01"), mostrando el contenido y la fecha/hora de publicación:
+
+```cypher
+MATCH (alice:User {username: "alice01"})-[:POSTED]->(post:Post)
+RETURN post.content AS Contenido, post.timestamp AS FechaHora
+ORDER BY post.timestamp DESC;
+```
+
+
+El probelma es que teneoms los nodos creados correctamente (User y Post)
+pero no existen relaciones entre ellos — es decir, nadie ha hecho (:User)-[:POSTED]->(:Post) . Por ello , no me salía nada al ejecutar. Vamos a solucionarlo
+
+#### a: Relacionamos a Alice con su primer post
+MATCH (alice:User {username: "alice01"}),
+      (post1:Post {content: "Estoy aprendiendo Neo4j y me encanta."})
+CREATE (alice)-[:POSTED]->(post1);
+
+
+#### b. Relacionamos a Bob con el segundo post
+MATCH (bob:User {username: "bob99"}),
+      (post2:Post {content: "Las bases de datos de grafos son poderosas."})
+CREATE (bob)-[:POSTED]->(post2);
+
+
+#### capt1 de comprobación
+![ Comprobac](./imagenes/5.png)
+
+
+#### Encontrar los posts que un usuario ha dado “Like”
+```cypher
+MATCH (alice:User {username: "alice01"})-[l:LIKES]->(post:Post)
+RETURN post.content AS Contenido, l.date AS FechaLike
+ORDER BY l.date DESC;
+```
+
+Para este segundo apartado, nos pasa lo mismo, Alice debe tener al menos 1 like para que nos salga algo al ejecutar la consulta. Hasta ahora no nos salía nada. Vamos a solucionarlo
+
+#### a) Por ej, hacemos que Alice le dé “Like” al post de Bob
+```cypher
+MATCH (alice:User {username: "alice01"}),
+      (post:Post {content: "Las bases de datos de grafos son poderosas."})
+CREATE (alice)-[:LIKES {date: datetime("2025-10-23T08:30:00")}]->(post);
+```
+
+
+#### capt2 de comprobación
+![ Comprobac](./imagenes/6.png)
+
+
+---
+
+
+## EJERCICIO 5: Explorando el Grafo Visualmente
+
+### Objetivo del 5º ejercicio
+
+En este ejercicio exploramos y visualizamos nuestro grafo en Neo4j Browser para comprender mejor las relaciones entre usuarios y publicaciones, básicamente solo explorafr el gráfico
+
+### Consultas Cypher
+```cypher
+MATCH (n)-[r]->(m)
+RETURN n, r, m;
+```
+
+#### capt de comprobación
+![ Comprobac](./imagenes/7.png)
+
+
+#### otra capt de comprobación
+Aquí ordenamos un poco el gráfico
+![ Comprobac](./imagenes/8.png)
