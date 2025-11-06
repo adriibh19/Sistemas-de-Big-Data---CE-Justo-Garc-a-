@@ -7,7 +7,7 @@
 ## EJERCICIO 1: Creando nuestra primera tabla en la nube
 
 ### Objetivo del 1er ejercicio
-Crearemos una tabla llamada **Orders** en DynamoDB, que servirá como base de datos para los pedidos del sistema de e-commerce.
+Crearemos una tabla llamada **Orders** en DynamoDB, que servirá como base de datos para los pedidos del sistema de e-commerce
 
 
 ### Observaciones
@@ -16,8 +16,6 @@ La **clave de partición (`order_id`)** se utilizará para distribuir los datos 
 
 ### Comprobación
 ![ Comprobacion del ej 1](./imageness/1.png)
-
-
 
 
 
@@ -99,6 +97,8 @@ Insertamos los primeros pedidos en la tabla **Orders** usando el formato JSON de
 ![Captura3A](./imageness/3a.png)
 
 #### Captura 3B – Pedido actualizado
+Filtramos por "Pendiente" y uno de ellos lo actualizamos (cambiamos). De que se guarda el cambio, aparece3 como "Delivered".
+
 ![Captura3B](./imageness/3b.png)
 
 
