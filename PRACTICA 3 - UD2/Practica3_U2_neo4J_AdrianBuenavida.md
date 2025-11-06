@@ -15,7 +15,7 @@ DynamoDB creó una tabla distribuida de forma automática, sin necesidad de serv
 La **clave de partición (`order_id`)** se utilizará para distribuir los datos y permitir búsquedas rápidas por ID de pedido.
 
 ### Comprobación
-![ Comprobacion del ej 1](./1.png)
+![ Comprobacion del ej 1](./imageness/1.png)
 
 
 
@@ -81,4 +81,4 @@ Insertamos los primeros pedidos en la tabla **Orders** usando el formato JSON de
 
 
 ### Comprobación
-![ Comprobacion del ej 1](./2.png)
+![ Comprobacion del ej 1](./imageness/2.png)
