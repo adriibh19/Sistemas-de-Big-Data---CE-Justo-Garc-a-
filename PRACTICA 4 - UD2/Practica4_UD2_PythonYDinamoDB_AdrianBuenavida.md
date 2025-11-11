@@ -10,17 +10,30 @@ Dentro de AWSAcademy, vamos arriba a la derecha, alapartado de "AWS Details" y h
 Luego vamos al cmd y escribimos "aws configuration", y comenzamo con la configuración.
 
 #### Comprobación
-![ Comprobacion del ej 1](./imagenes/3.png)
+![ Comprobacion ](./imagenes/3.png)
 
 
 
 
 ### 1.2 Instalamos Python y Pip
 
-#### Comprobación1
-![ Comprobacion del ej 1](./imagenes/instalacion_python.png)
+#### Comprobación - Python
+![ Comprobacion](./imagenes/instalacion_python.png)
 
 
-#### Comprobación2
+#### Comprobación - Boto3
+![ Comprobacion](./imagenes/boto3.png)
 
+
+### 1.3. Verificación de las Credenciales
+
+Escribimos en el cmd el siguiente comando: ```aws sts get-caller-identity```
+
+#### Comprobación
+![ Comprobacion](./imagenes/4.png)
+
+
+<br>
+
+## 2a PARTE: Automatizando Operaciones con Boto3
 
