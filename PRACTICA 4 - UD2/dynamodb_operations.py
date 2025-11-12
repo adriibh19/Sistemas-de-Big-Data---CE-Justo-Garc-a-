@@ -1,70 +1,19 @@
-# Práctica 4: Práctica 4: Automatización de DynamoDB con Python y Boto3_AdrianBuenavida
+#Vamos a conectarnos a DynamoDB 
 
-
-## 1a PARTE: Preparamos el entorno
-
-### 1.1 Configuramos AWScli 
-
-Dentro de AWSAcademy, vamos arriba a la derecha, alapartado de "AWS Details" y hacemos click. Nos aparecerán unos datos relacionados con nuestro usuario.
-
-Luego vamos al cmd y escribimos "aws configuration", y comenzamo con la configuración.
-
-#### Comprobación
-![ Comprobacion ](./imagenes/3.png)
-
-
-
-
-### 1.2 Instalamos Python y Pip
-
-#### Comprobación - Python
-![ Comprobacion](./imagenes/instalacion_python.png)
-
-
-#### Comprobación - Boto3
-![ Comprobacion](./imagenes/boto3.png)
-
-
-### 1.3. Verificación de las Credenciales
-
-Escribimos en el cmd el siguiente comando: ```aws sts get-caller-identity```
-
-#### Comprobación
-![ Comprobacion](./imagenes/4.png)
-
-
-<br>
-
-## 2a PARTE: Automatizando Operaciones con Boto3
-
-### 2.1. Conexión a DynamoDB
-Con el siguiente comando, lograremos  establecer la conexión con el servicio y seleccionar nuestra tabla "Orders":
-
-```json
 import boto3
 
+# Crear recurso de DynamoDB
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
+# Seleccionar la tabla Orders
 table = dynamodb.Table('Orders')
 
+# Confirmar conexión
 print(f"Conectado a la tabla '{table.name}' en la región '{dynamodb.meta.client.meta.region_name}'.")
 
-```
-
-![ Comprobacion](./imagenes/conexiondynamobd.png)
 
 
-
-<br>
-
-
-
-### Ejercicio 1: Crear un Nuevo Pedido
-En principio, como prueba, crearemos un nuevo item en la tabla la cual, hemos establecido conexión anteriormente.
-
-Creamos la función:
-
-```json
+# Función para crear un nuevo pedido
 def create_order(order_id, customer_name, product, quantity, status):
     '''Crea un nuevo ítem en la tabla Orders.'''
     try:
@@ -82,28 +31,14 @@ def create_order(order_id, customer_name, product, quantity, status):
         return response
     except Exception as e:
         print(f"Error al crear el pedido: {e}")
-```
 
-Creamos pedido:
-
-```json
+#llamamos a la función para crear un pedido de ejemplo
 create_order('1001', 'Juan Perez', 'Laptop', 1, 'Pending')
-```
-
-![ Comprobacion](./imagenes/crearpedido.png)
 
 
 
-<br>
 
-
-
-### Ejercicio 2: Leer un pedido
-Ahora, lo que haremos será leer un pedido por su ID. Con lo cual, vamos a "buscar" nuestro pedido creado recientemente.
-
-Creamos la función:
-
-```json
+# Función para leer un pedido por su ID
 def get_order(order_id):
     '''Obtiene un ítem de la tabla Orders por su ID.'''
     try:
@@ -117,31 +52,14 @@ def get_order(order_id):
             return None
     except Exception as e:
         print(f"Error al obtener el pedido: {e}")
-```
 
-
-llamamos a la función para buscar el pedido:
-
-```json
+#llamamos a la función para obtener un pedido de ejemplo
 get_order('1001')
-```
-
-![ Comprobacion](./imagenes/leerunpedido.png)
 
 
 
 
-<br>
-
-
-
-
-### Ejercicio 3: Actualizar estado de un pedido
-Actualizaremos el estado de nuestro pedido. Por ejemplo, a "shipped", enviado.
-
-Creamos la función:
-
-```json
+# Función para actualizar el estado de un pedido
 def update_order_status(order_id, new_status):
     '''Actualiza el atributo 'status' de un pedido.'''
     try:
@@ -157,18 +75,5 @@ def update_order_status(order_id, new_status):
     except Exception as e:
         print(f"Error al actualizar el pedido: {e}")
 
-```
-
-
-llamamos a la función para actualizar su estado:
-
-```json
+#llamamos a la función para actualizar el estado de un pedido de ejemplo
 update_order_status('1001', 'Shipped')
-```
-
-![ Comprobacion](./imagenes/actualizarestadopedido.png)
-
-
-
-
-
