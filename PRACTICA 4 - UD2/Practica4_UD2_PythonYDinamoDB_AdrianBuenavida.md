@@ -261,7 +261,7 @@ Y para ejecutar un flujo de demostración, implementaremos:
 
 ```python 
 if __name__ == "__main__":
-    print("--- Demostración de operaciones con DynamoDB ---")
+    print("\n Demostración de operaciones con DynamoDB \n")
 
     # 1.Creamos un nuevo pedido
     create_order("ORD-PY-1001", "Javier Ruiz", "Teclado Mecánico", 1, "Pending")
@@ -281,11 +281,11 @@ if __name__ == "__main__":
     delete_order("ORD-PY-1001")
     get_order("ORD-PY-1001")  # Verificamos que ya no existe
 
-    print("\n--- Demostración finalizada ---")
+    print("\n Demostración finalizada \n")
 
 ```
 
-Entonces, hemos tenido que comentar las llamadas a las funciones anteriores porque con esta útima dentencia del if - main, ya están las llamadas a las funciones explicadas
+Entonces, hemos tenido que comentar las llamadas a las funciones anteriores porque con esta útima sentencia del if - main, ya están las llamadas a las funciones explicadas
 
 <br>
 
@@ -310,6 +310,7 @@ Como desventaja, al principio puede ser más complejo y requiere algunos conocim
 <br>
 
 2. SDK como Herramienta
+
 Boto3 sirve para mucho más que pedidos. Puedes subir archivos a S3 (como un gran disco duro en la nube de AWS), lanzar máquinas virtuales en EC2 (máquinas virtuales en la nube), mover datos entre servicios... que entrenen modelos y guarden resultados sin que tengas que tocar nada manualmente.
 
 
@@ -317,6 +318,7 @@ Boto3 sirve para mucho más que pedidos. Puedes subir archivos a S3 (como un gra
 
 
 3. Dificultades y Aprendizajes
+
 Lo más complicado fue pillar cómo funcionan las actualizaciones (UpdateExpression) y los filtros con scan(). 
 
 Para mí, lo mejor ha sido ver cómo todo el flujo CRUD (create, delete...) funciona de forma automática y cómo los datos cambian en la base en tiempo real. Así, queda bstante claro lo útil que es automatizar cosas cuando trabajas con Big Data
