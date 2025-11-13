@@ -1,4 +1,4 @@
-# Práctica 4: Práctica 4: Automatización de DynamoDB con Python y Boto3_AdrianBuenavida
+# Práctica 4: Automatización de DynamoDB con Python y Boto3_AdrianBuenavida
 
 
 ## 1a PARTE: Preparamos el entorno
