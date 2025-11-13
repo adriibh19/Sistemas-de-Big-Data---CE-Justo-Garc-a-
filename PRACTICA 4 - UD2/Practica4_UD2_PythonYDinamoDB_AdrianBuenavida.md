@@ -263,21 +263,21 @@ Y para ejecutar un flujo de demostración, implementaremos:
 if __name__ == "__main__":
     print("\n Demostración de operaciones con DynamoDB \n")
 
-    # 1.Creamos un nuevo pedido
+    #1.Creamos un nuevo pedido
     create_order("ORD-PY-1001", "Javier Ruiz", "Teclado Mecánico", 1, "Pending")
 
-    # 2.Leemos el pedido recién creado
+    #2.Leemos el pedido recién creado
     get_order("ORD-PY-1001")
 
-    # 3.Actualizamos su estado
+    #3.Actualizamos su estado
     update_order_status("ORD-PY-1001", "Shipped")
     get_order("ORD-PY-1001")  # Verificamos el cambio
 
-    # 4 Buscamos todos los pedidos de un cliente (usa un nombre que exista en tu tabla)
+    #4 Buscamos todos los pedidos de un cliente (usa un nombre que exista en tu tabla)
     get_orders_by_customer("Javier Ruiz")
     get_orders_by_customer("Carlos Soto")  # Ejemplo con otro cliente
 
-    # 5.Eliminamos el pedido
+    #5.Eliminamos el pedido
     delete_order("ORD-PY-1001")
     get_order("ORD-PY-1001")  # Verificamos que ya no existe
 
@@ -289,7 +289,7 @@ Entonces, hemos tenido que comentar las llamadas a las funciones anteriores porq
 
 <br>
 
-![ Comprobacion](./imagenes/demostracionfinal.png)
+![ Comprobacion](./imagenes/demostracionfinalact.png)
 
 
 
