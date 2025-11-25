@@ -136,7 +136,7 @@ aws dynamodb put-item \
 
 ## Ejercicio 3. Consulta de Datos (Read - Query)
 
-Vasmos a ver la evolución de la temperatura del sensor SENSOR-ZONA-Norte-01
+Vasmos a ver la evolución de la temperatura del sensor SENSOR-ZONA-Norte-01, que es el que nos pide consultar nuestra práctica
 
 Comando:
 
@@ -151,3 +151,70 @@ aws dynamodb query \
 
     #Con ell --scan-index-forward false lo que hará DynamoDB es recorrer los datos de Timestamp en orden de lo más reciente a lo más antiguo
 ```
+
+### Comprobación
+![ Comprobacion ](./imagenes/4.png)
+
+
+
+<br>
+
+
+
+## Ejercicio 4. Actualización de Datos (Update)
+Vamos a coger la lectura más antigua del sensor SENSOR-ZONA-Norte-01 (la que tiene el Timestamp "2025-11-20T08:00:00Z") para "simular" que fue la que estaba dando problemas
+
+Por tanto, visualizamos primero el producto:
+
+```python
+aws dynamodb get-item \
+    --table-name SensoresEcoCity \
+    --key '{"SensorID": {"S": "SENSOR-ZONA-Norte-01"}, "Timestamp": {"S": "2025-11-20T08:00:00Z"}}'
+
+```
+
+### Comprobación
+![ Comprobacion ](./imagenes/5.png)
+
+<br>
+
+Y ahora ya hacemos las modificaciones:
+```python
+    aws dynamodb update-item \
+        --table-name SensoresEcoCity \
+        --key '{
+            "SensorID": {"S": "SENSOR-ZONA-Norte-01"},
+            "Timestamp": {"S": "2025-11-20T08:00:00Z"}
+        }' \
+        --update-expression "SET #est = :newStatus, Nota = :newNote" \
+        --expression-attribute-names '{"#est": "Estado"}' \
+        --expression-attribute-values '{
+            ":newStatus": {"S": "Mantenimiento"},
+            ":newNote": {"S": "Recalibrado por tecnico"}
+        }' \
+        --return-values UPDATED_NEW
+        #--expression-attribute-names: lo nusamos para crear un alias #est para el atributo Estado
+
+        #con el attribute values definimos los valores que se van a insertar , que serían las variables de "n uevo estado" y "nueva nota"
+
+        #finalmente, con el return values UPDATED_NEW: con ello, nos dará los atributos que modificamos
+```
+
+Volvemos a comprobar: 
+```python
+aws dynamodb get-item \
+    --table-name SensoresEcoCity \
+    --key '{"SensorID": {"S": "SENSOR-ZONA-Norte-01"}, "Timestamp": {"S": "2025-11-20T08:00:00Z"}}'
+
+```
+
+
+### Comprobación
+![ Comprobacion ](./imagenes/.png)
+![ Comprobacion ](./imagenes/.png)
+
+
+<br>
+
+
+## Ejercicio 5. Eliminación de Datos (Delete)
