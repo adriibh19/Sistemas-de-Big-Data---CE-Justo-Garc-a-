@@ -209,9 +209,9 @@ aws dynamodb get-item \
 ```
 
 
-### Comprobación
-![ Comprobacion ](./imagenes/.png)
-![ Comprobacion ](./imagenes/.png)
+### Comprobación de las modificaciones
+![ Comprobacion ](./imagenes/6.png)
+![ Comprobacion ](./imagenes/7.png)
 
 
 <br>
