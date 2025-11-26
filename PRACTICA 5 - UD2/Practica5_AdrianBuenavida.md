@@ -218,3 +218,44 @@ aws dynamodb get-item \
 
 
 ## Ejercicio 5. Eliminación de Datos (Delete)
+Como durante toda la práctica hemos estado usando de "modelo" el sensor de la zona norte 01, volveremos a usar este mismo sensor para eliminar sus datos
+
+```python
+aws dynamodb delete-item --table-name SensoresEcoCity --key '{"SensorID": {"S": "SENSOR-ZONA-Norte-01"}, "Timestamp": {"S": "2025-11-20T08:00:00Z"}}'
+
+#este lo he puesto todo de seguido porque con " / ", me daba problemas
+
+
+```
+#### Comando de 1a Comprobación
+![ Comprobacion ](./imagenes/8.png)
+
+Al parecer, está "bien", ya que se debería haber eliminado correctamente.
+
+
+### Comprobación de la eliminación del ítem
+#### Comando:
+
+```python
+aws dynamodb get-item --table-name SensoresEcoCity --key '{"SensorID": {"S": "SENSOR-ZONA-Norte-01"}, "Timestamp": {"S": "2025-11-20T08:00:00Z"}}'
+```
+
+![ Comprobacion ](./imagenes/9.png)
+
+Nos sale vacío, por tanto, está correctamente eliminado. Además, en el entonro gráfico, nos falta el sensor de la zona norte 01 delo horario de las 8:00 de la mañana, lo cual nos confirma 100% que ha sido eliminado perfectamente
+
+
+## Conclusión: breve reflexión sobre la idoneidad de DynamoDB para datos de IoT (Internet of Things)
+
+Después de trabajar con la práctica de los sensores, veo que Amazon DynamoDB es la base de datos perfecta para manejar la avalancha de datos de proyectos como el internet de las cosas (IoT).
+
+La clave de su poder es que es una base de datos NoSQL de tipo clave-valor. 
+
+Esto significa dos cosas :
+
+- DynamoDB está diseñada para dar respuestas rapidisimas sin importar si tenemos pocos o muchísimossensores. Esto nos puede servir pra saber el estado de la ciudad en tiempo real, por ejemplo
+
+- Podemos añadir miles de sensores sin que la base de datos se haga lenta 
+
+
+En resumen, DynamoDB es una herramienta imprescindible en Big Data e IA porque nos permite gestionar una cantidad masiva de datos generados continuamente (como los de los sensores de IoT de esta práctica) de una forma sencilla y rápida 
