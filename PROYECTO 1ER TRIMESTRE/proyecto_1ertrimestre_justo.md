@@ -202,3 +202,29 @@ El modelo de DynamoDB es el más adecuado para el inventario de un concesionario
 2.  **Frente a Neo4j (Grafos):** El problema no requiere analizar **relaciones complejas** (ej. análisis de redes). La tarea principal es **recuperar el ítem por ID (VIN)** y **filtrar listas ordenadas**, para lo cual el modelo Clave-Valor de DynamoDB es **más rápido** que un modelo de Grafos.
 
 ---
+
+
+## 3. Desarrollo de la API para nuestro concesionario
+
+### 3.1. ¿Por qué hemos elegido Python/Flask y Boto3?
+
+Hemos optado por Python (Flask) y la librería Boto3 porque creemos que es la combinación más eficiente para el proyecto:
+
+- **Simplicidad**: Flask nos permite implementar la API REST con el código mínimo necesario.
+
+- **Velocidad**: Python es ideal para el desarrollo rápido.
+
+- **Integración**: Boto3 es el SDK oficial de AWS, lo que garantiza la forma más directa  de conectar la API con nuestra base de datos DynamoDB.
+
+### 3.2 Desarrollo de la API REST
+#### 3.2.1 Configuración Inicial del Entorno
+
+Para empezar el desarrollo en Python, debemos configurar el entorno e instalar las dependencias necesarias.
+
+*Pasos a seguir en la CloudShell en **AWS***:
+
+- Crear y Activar el Entorno Virtual.
+
+- Instalar Flask (el framework web minimalista).
+
+- Instalar Boto3 (la librería de AWS para interactuar con DynamoDB)
