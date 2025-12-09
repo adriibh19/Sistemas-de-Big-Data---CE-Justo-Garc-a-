@@ -93,7 +93,7 @@ Vamos a insertar :
 
 
 - **50 registros** simulados en la tabla `CInventory`,
-esta tabla como tiene bastantes registros, lo que hemos hecho desde la CloudSHell de WAS, es hacer un **nano inventory_data.json** y hemos creado un archivo .json en que hemos incluido los 55 registros.
+esta tabla como tiene bastantes registros, lo que hemos hecho desde la Cloudshell , es hacer un **nano inventory_data.json** y hemos creado un archivo .json en que hemos incluido los 55 registros.
 
 Ahora, solo ejecutamos el siguiente comando...
 
@@ -103,23 +103,60 @@ aws dynamodb batch-write-item --request-items file://inventory_data.json
 ```
 
 ##### Comprobación:
+![ Comprobacion](./imagenes/codigo_inseercc_cinventory.png)
 
 
-
-
-- **10 elementos** en `CSales`,
-##### Comando usado
-
-
-##### Comprobación:
-
-
-
-- **5 elementos** en `CUsers` ,
-##### Comando usado
-
+Usamos un count para que nos devuelva cuantos elementos tenemos. El código es:
+```python
+aws dynamodb scan --table-name CInventory --select COUNT
+```
 
 ##### Comprobación:
+![ Comprobacion](./imagenes/insercc_completa_cinventory.png)
+
+
+<br>
+
+
+- **10 elementos** en `CSales`. También hemos creado un archivo .json para poder incluir todos los elementos directamente
+##### Comando usado
+```python
+aws dynamodb batch-write-item --request-items file://sales.json
+```
+
+##### Comprobación:
+![ Comprobacion](./imagenes/codigo_inseercc_10_sales.png)
+
+
+Hacemos el COUNT para la comprobación extra de que se han importado correctamente
+
+##### Comprobación:
+![ Comprobacion](./imagenes/insercc_completa_sales.png)
+
+
+
+<br>
+
+
+- **5 elementos** en `CUsers`. Volvemos a crear un nuevo json : users.json para poder incluir todos los elementos.
+
+##### Comando usado
+```python
+aws dynamodb batch-write-item --request-items file://users.json
+```
+
+##### Comprobación:
+![ Comprobacion](./imagenes/codigo_insercc_5_usuarios.png)
+
+De nuevo, hacemos el COUNT para que nos cuente en total los elementos que hay en la tabla users, en este caso.
+
+##### Comprobación:
+![ Comprobacion](./imagenes/insercc_completa_users.png)
+
+
+
+
+
 
 
 
@@ -129,23 +166,29 @@ aws dynamodb batch-write-item --request-items file://inventory_data.json
 
 ### 2.1. Elección de la Tecnología
 
-* **Tecnología Elegida:** **Amazon DynamoDB**
-* **Modelo de Datos:** **Clave-Valor / Columnar Amplia.**
+* **Base de datos elegida:** **AWS (DynamoDB)**
+* **Modelo de Datos:** **Clave-Valor**
 
 ### 2.2. Documentación Técnica
 
-* **Modelo de Datos:** DynamoDB es una BD **Clave-Valor Sin Esquema (Schema-less)**. Los datos se almacenan como *Ítems* (sin columnas fijas) identificados por su *Clave Primaria* (compuesta por PK y SK).
+* **Modelo de Datos:** DynamoDB es una BD **Clave-Valor sin esquema**. Los datos se almacenan como *Ítems* (sin columnas fijas) identificados por su *Clave Primaria* (compuesta por PK y SK)
+<br>
+
 * **Lenguaje de Consulta:** Utiliza una **API** de comandos (ej. `GetItem`, `PutItem`, `Query`).
+<br>
+
 * **Características Clave:**
-    * **Rendimiento Garantizado:** **Latencia de milisegundos de un solo dígito** constante.
-    * **Serverless y Escalabilidad:** AWS gestiona automáticamente el escalado de la capacidad de lectura/escritura (Escalado Horizontal).
-    * **GSI (Índices Secundarios Globales):** Permiten consultas flexibles y eficientes que no usan la clave principal.
+    * **Serverless y Escalabilidad:** AWS gestiona automáticamente el escalado de lectura/escritura (Escalado Horizontal)
+    * **GSI (Índices secundarios globales):** Permiten consultas flexibles y eficientes que no usan la clave principal.
+
 
 ### 2.3. Justificación de Superioridad
 
-El modelo de DynamoDB es el más adecuado para el inventario de un concesionario, superando a los otros modelos:
+El modelo de DynamoDB es el más adecuado para el inventario de un concesionario, superando a los otros modelos.... :
 
-1.  **Frente a MongoDB (Documentos):** El inventario de coches tiene atributos estandarizados. DynamoDB, al estar optimizado para el **acceso directo por clave**, ofrece una **velocidad de lectura (Get/Query) superior y más predecible** que MongoDB.
-2.  **Frente a Neo4j (Grafos):** El problema no requiere analizar **relaciones complejas** (ej. análisis de redes). La tarea principal es **recuperar el ítem por ID (VIN)** y **filtrar listas ordenadas**, para lo cual el modelo Clave-Valor de DynamoDB es **más rápido y rentable** que un modelo de Grafos.
+1.  **Frente a MongoDB (Documentos):** El inventario de coches tiene atributos estandarizados. DynamoDB, al estar optimizado para el **acceso directo por clave**, ofrece una **velocidad de lectura (Get/Query) superior** que MongoDB.
+<br>
+
+2.  **Frente a Neo4j (Grafos):** El problema no requiere analizar **relaciones complejas** (ej. análisis de redes). La tarea principal es **recuperar el ítem por ID (VIN)** y **filtrar listas ordenadas**, para lo cual el modelo Clave-Valor de DynamoDB es **más rápido** que un modelo de Grafos.
 
 ---
