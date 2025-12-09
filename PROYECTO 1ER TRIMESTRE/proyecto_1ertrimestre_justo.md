@@ -155,6 +155,16 @@ De nuevo, hacemos el COUNT para que nos cuente en total los elementos que hay en
 
 
 
+<br>
+
+
+### Comprobaciones gráficas de la creación de todas las tablas con todos sus elementos:
+![ Comprobacion](./imagenes/comprobac_grafica_inventory.png)
+
+![ Comprobacion](./imagenes/comprobac_grafica_sales.png)
+
+![ Comprobacion](./imagenes/comprobac_grafica_userspng.png)
+
 
 
 
