@@ -1,0 +1,169 @@
+/* -- Estilos Globales y Tipografía -- */
+body {
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #e9ebee; 
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* -- Header -- */
+header {
+    background-color: #1abc9c; 
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+/* -- Tarjetas (Cards) y Diseño de Columna -- */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card h2 {
+    color: #1abc9c;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.two-columns {
+    display: flex;
+    gap: 30px;
+}
+
+.users-section, .crud-section {
+    flex: 1; 
+}
+
+/* -- Formularios y Botones -- */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-row input {
+    flex-grow: 1;
+}
+
+button {
+    padding: 12px 25px;
+    margin-top: 5px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* -- Tablas -- */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    margin-top: 20px;
+    font-size: 0.95em;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+/* -- Contenedores de Resultado -- */
+#vehicleDetail pre, #usersResult {
+    background: #f4f7f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border: 1px solid #ecf0f1;
+}
+
+/* Estilo para los botones en el formulario */
+.form-section .actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}

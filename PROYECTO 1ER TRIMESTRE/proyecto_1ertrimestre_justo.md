@@ -229,5 +229,85 @@ Para empezar el desarrollo en Python, debemos configurar el entorno e instalar l
 
 - Instalar Boto3 (la librería de AWS para interactuar con DynamoDB)
 
+- Añadimos CORS: Para permitir que la interfaz web local (file:///) se comunique con la API (http://127.0.0.1:5000), instalamos la extensión flask-cors
 
-#### 1er paso:
+
+
+
+#### 3.2.2 Arquitectura de Endpoints (Clases y Funcionalidad)
+
+La API que implementamos con Python/Flask utiliza `GetItem`, `PutItem`, `Query` para garantizar un rendimiento óptimo. 
+Nos aseguramos de manejar correctamente el tipo numérico utilizando la clase `Decimal` en Python para evitar errores de precisión en los campos clave del GSI.
+
+A continuación, aquí la funcionalidad de los **8 *endpoints*** desarrollados:
+
+
+| Objetivo | Método | Endpoint | Implementación en DynamoDB |
+| :--- | :--- | :--- | :--- |
+| **Consulta Obligatoria** | `GET` | `/vehicles/available` | **QUERY sobre GSI (`StatusPriceIndex`)** |
+| **Listar Todos** | `GET` | `/vehicles` | `Scan` |
+| **Leer Específico** | `GET` | `/vehicles/{vin}` | `GetItem` (Clave Compuesta PK/SK) |
+| **Crear Nuevo** | `POST` | `/vehicles` | `PutItem` (Incluye actualización de GSI) |
+| **Actualizar** | `PUT` | `/vehicles/{vin}` | `UpdateItem` (Actualiza GSI si cambia Precio/Estado) |
+| **Eliminar** | `DELETE` | `/vehicles/{vin}` | `DeleteItem` |
+| **Consulta Adicional**| `GET` | `/users/role/{rol}` | **QUERY sobre GSI (`RoleIndex`)** |
+
+
+<br>
+---
+
+
+
+
+## 4. Desarrollo de la Web de Consulta (Interfaz Frontend)
+
+Hemos desarrollado una interfaz de gestión web (`index.html`, `styles.css`, `index.js`) para la API REST, con un diseño al estilo profesional de un negocio de coches en Cáceres.
+
+
+
+### 4.1. Lógica de Negocio Avanzada (CRUD Integrado)
+
+La **Sección 1** de la web implementa la gestión completa del inventario (CRUD) con lógica de confirmación avanzada:
+
+
+#### A. Consulta y Confirmación (GET / 404)
+
+Al introducir un VIN que **NO existe** (ej. `MIPRIMERCOCHE1234`), la API nos devuelve un código **404**, lo que activa la lógica JavaScript para preguntar al usuario si desea **crear** el nuevo vehículo.
+
+![ Captura de la web mostrando la creación de un nuevo vehículo con el mensaje de confirmación de POST](./imagenes/gestion_avanzada.png)
+
+
+
+#### B. Operaciones Transaccionales (POST, PUT, DELETE)
+
+El formulario nos permite ejecutar las operaciones `POST`, `PUT` y `DELETE`, demostrando que nuestra API mantiene la integridad de los datos.
+
+
+### 4.2. Consulta Adicional (Empleados por Rol)
+
+En la **Sección 2**, utilizamos el GSI `RoleIndex` en la tabla `CUsers` para filtrar empleados.
+
+* **Endpoint Llamado:** `GET /users/role/{rol}`.
+* **Resultado:** Mostramos la lista de empleados que coinciden con el rol seleccionado (ej. Comercial, Gerente).
+
+![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/consulta_empleados.png)
+
+
+
+### 4.3. Búsqueda Detallada por Atributos
+
+La **Sección 3**  de la web para obtener el inventario completo y filtrarlo por Marca y Modelo para una búsqueda rápida de un ítem
+
+* **Implementación:** La web hace un `GET /vehicles` al inicio para comprobar los 55 ítems y luego aplica filtros en JavaScript.
+* **Resultado:** Mostramos el JSON completo del vehículo que coincida con la selección, lo cual es útil para auditorías, por ejemplo
+
+
+### 4.4. Consulta Obligatoria: Vehículos Disponibles
+
+La **Sección 4** demuestra la consulta clave de nuestro proyecto, verificando que el GSI `StatusPriceIndex` está funcionando correctamente y sin filtros.
+
+
+* **Endpoint Llamado:** `GET /vehicles/available` (Consulta pura).
+* **Resultado:** La tabla se llena con **39** vehículos disponibles, **ordenados de menor a mayor precio**.
+
+![ Captura de la web mostrando el resultado de la Consulta Compleja Obligatoria (39 vehículos disponibles y ordenados por precio)](./imagenes/consulta_obligatoria.png)

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario Cáceres - Gestión de Inventario</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header>
+        <h1>CONCESIONARIO AUTOMÓVILES CÁCERES</h1>
+        <p>Plataforma de Gestión de Inventario en la provincia de Cáceres</p>
+    </header>
+
+    <div class="container">
+
+        <section class="card form-section">
+            <h2>1. Búsqueda y Gestión del Vehículo (CRUD Completo)</h2>
+            <p>Introduce el VIN para editar o eliminar. Si el vehículo no existe, el sistema te ofrecerá crearlo.</p>
+            
+            <div class="form-row">
+                <input type="text" id="vinManageInput" placeholder="Introduce el VIN (Ej: ABC1234500000001)" style="flex-grow: 1;">
+                <button onclick="checkVehicleExistence()" id="btnCheck">Consultar y Cargar</button>
+            </div>
+
+            <div id="vehicleFormContainer" style="display: none;">
+                <h3 id="formTitle">Editar Vehículo Existente</h3>
+                <form id="vehicleForm">
+                    <label for="fmarca">Marca</label>
+                    <input type="text" id="fmarca" required>
+
+                    <label for="fmodelo">Modelo</label>
+                    <input type="text" id="fmodelo" required>
+
+                    <label for="fprecio">Precio (€)</label>
+                    <input type="number" id="fprecio" required>
+
+                    <label for="fkilometraje">Kilometraje (km)</label>
+                    <input type="number" id="fkilometraje" required>
+
+                    <label for="festado">Estado</label>
+                    <select id="festado" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Vendido">Vendido</option>
+                    </select>
+
+                    <div class="actions">
+                        <button type="submit" id="btnSave">Guardar Cambios (PUT/POST)</button>
+                        <button type="button" onclick="deleteVehicle()" id="btnDelete" class="delete-btn">Eliminar (DELETE)</button>
+                    </div>
+                </form>
+            </div>
+            <p id="formMessage" style="margin-top: 10px;"></p>
+        </section>
+
+
+        <div class="two-columns">
+            
+            <section class="card users-section">
+                <h2>2. Empleados por Rol (Consulta Adicional)</h2>
+                <p>Usa GSI: RoleIndex en la tabla CUsers.</p>
+                <div class="actions">
+                    <button onclick="fetchUsersByRole('Comercial')">Buscar Comerciales</button>
+                    <button onclick="fetchUsersByRole('Gerente')">Buscar Gerentes</button>
+                    <button onclick="fetchUsersByRole('Mecánico')">Buscar Mecánicos</button>
+                </div>
+                <div id="usersResult"></div>
+            </section>
+
+            <section class="card crud-section">
+                <h2>3. Búsqueda Detallada por Atributos</h2>
+                <p>Busca cualquier vehículo aleatorio disponible por Marca y Modelo, o ver todo el JSON.</p>
+
+                <div class="actions filter-controls" style="margin-bottom: 15px;">
+                    <select id="searchMarca" style="padding: 10px;">
+                        <option value="">Marca</option>
+                    </select>
+                    <select id="searchModelo" style="padding: 10px;">
+                        <option value="">Modelo</option>
+                    </select>
+                    <button onclick="findVehicleDetails()">Buscar Vehículo</button>
+                </div>
+                <div id="vehicleDetail"></div>
+            </section>
+        </div>
+
+        <section class="card query-section">
+            <h2>4. Consulta Obligatoria: Vehículos Disponibles</h2>
+            <p>Listado ordenado por precio de los vehículos disponibles (Consulta GSI requerida, sin filtros).</p>
+            
+            <button onclick="fetchAvailableVehicles()">Mostrar Inventario Disponible</button>
+            <p>Total de Vehículos Disponibles: <strong id="countAvailable">0</strong></p>
+            <div class="table-container">
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>VIN</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Precio</th>
+                            <th>Km</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+        
+    </div>
+    <script src="index.js"></script> 
+</body>
+</html>
