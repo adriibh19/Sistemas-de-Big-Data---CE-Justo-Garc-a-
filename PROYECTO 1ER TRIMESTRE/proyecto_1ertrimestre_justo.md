@@ -253,6 +253,9 @@ A continuación, aquí la funcionalidad de los **8 *endpoints*** desarrollados:
 | **Consulta Adicional**| `GET` | `/users/role/{rol}` | **QUERY sobre GSI (`RoleIndex`)** |
 
 
+**Enlace para ver el código completo de nuestra app.py:** [Ver app.py completo](./app.py)
+
+
 <br>
 ---
 
