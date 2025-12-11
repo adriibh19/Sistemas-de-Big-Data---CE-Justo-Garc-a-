@@ -228,3 +228,6 @@ Para empezar el desarrollo en Python, debemos configurar el entorno e instalar l
 - Instalar Flask (el framework web minimalista).
 
 - Instalar Boto3 (la librería de AWS para interactuar con DynamoDB)
+
+
+#### 1er paso:
