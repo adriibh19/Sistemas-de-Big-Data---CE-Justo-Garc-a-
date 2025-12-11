@@ -1,6 +1,16 @@
 # Proyecto 1er trimestre: "Gestión de Inventario para Concesionario de Coches"
 ## Autores: Adrián Buenavida y José Luis Saavedra
 
+
+---
+## 0. Introducción
+
+En este proyecto, hemos optimizado la gestión de inventario y ventas de un concesionario de coches. Nuestro objetivo principal fue diseñar e implementar una arquitectura de datos moderna y escalable, utilizando **Amazon DynamoDB**, dada su velocidad de acceso por clave y escalabilidad horizontal frente a bases de datos relacionales, por ejemlo
+
+Hemos desarrollado una **API REST completa con Python (Flask)** y Boto3 para interactuar con la base de datos, asegurando la funcionalidad **CRUD** y la ejecución de consultas mediante el uso  de **Índices Secundarios Globales (GSI)**. 
+
+Finalmente, desarrolamos una interfaz web que demuestra la lógica implementada
+
 ---
 
 ## 1. Modelado de un Problema de Negocio Real
@@ -223,16 +233,37 @@ Para empezar el desarrollo en Python, debemos configurar el entorno e instalar l
 
 *Pasos a seguir en la CloudShell en **AWS***:
 
-- Crear y Activar el Entorno Virtual.
+- Crear y Activar el Entorno Virtual. 
+
+##### Comando usado para activar entorno
+Hemos usado la consola de comandos de VScode teniendo en cuenta que tiene que ser cmd. Y ejecutamos:
+```python
+python -m venv venv
+```
+
+```python
+.\venv\Scripts\activate
+```
 
 - Instalar Flask (el framework web minimalista).
 
 - Instalar Boto3 (la librería de AWS para interactuar con DynamoDB)
 
+##### Comando usado para el flask y boto3
+```python
+pip install flask boto3
+```
+
 - Añadimos CORS: Para permitir que la interfaz web local (file:///) se comunique con la API (http://127.0.0.1:5000), instalamos la extensión flask-cors
 
+##### Comando usado para el flask-cors
+```python
+pip install flask-cors
+```
 
+**Importante**: Tuvimos que habilitar la ejecución de scripts de PowerShell temporalmente para la activación: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
+<br>
 
 #### 3.2.2 Arquitectura de Endpoints (Clases y Funcionalidad)
 
@@ -421,3 +452,17 @@ def get_available_vehicles():
 
 ##### Comprobación: 
 ![ Captura de la web mostrando el resultado de la Consulta Compleja Obligatoria (39 vehículos disponibles y ordenados por precio)](./imagenes/consulta_obligatoria.png)
+
+
+
+---
+## 5. Conclusión
+
+El proyecto concluye con éxito la implementación de soluciones de gestión de nuestro inventario para el concesionario. 
+
+1.  **Validación del Modelo NoSQL:** Demostramos que DynamoDB es óptimo para el acceso de alta velocidad a ítems específicos 
+
+2.  **API REST Funcional:** La API  ejecuta las consultas complejas requeridas perfectamente. La instalación de la librería `Decimal` en el *backend* garantiza la precisión a la hora de gestionar precios y kilometraje
+
+3.  **Lógica de Negocio Avanzada:** La interfaz web  valida la detección de un VIN no existente y la sugerencia de creación de un vehículo al usuario.
+
