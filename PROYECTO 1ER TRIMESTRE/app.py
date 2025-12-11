@@ -2,10 +2,10 @@ from flask import Flask, jsonify, request
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 from flask_cors import CORS 
-from decimal import Decimal # <<< Importación esencial para números en DynamoDB
+from decimal import Decimal 
 
 # --- 1. CONFIGURACIÓN DE AWS DYNAMODB ---
-# Asegúrate que esta REGION coincida con la región donde creaste tus tablas
+
 AWS_REGION = 'us-east-1' 
 DYNAMODB = boto3.resource('dynamodb', region_name=AWS_REGION)
 
@@ -132,7 +132,7 @@ def create_vehicle():
         vin = data['VIN']
         estado = data['Estado']
         
-        # Tipado corregido: Conversión a Decimal para evitar errores de precisión de Float
+        #Conversión a Decimal para evitar errores de precisión de Float
         precio = Decimal(str(data['Precio'])) 
         kilometraje = Decimal(str(data['Kilometraje']))
 

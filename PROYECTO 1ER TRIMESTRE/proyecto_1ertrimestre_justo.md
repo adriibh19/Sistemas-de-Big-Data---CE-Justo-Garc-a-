@@ -297,6 +297,37 @@ En la **Sección 2**, utilizamos el GSI `RoleIndex` en la tabla `CUsers` para fi
 * **Endpoint Llamado:** `GET /users/role/{rol}`.
 * **Resultado:** Mostramos la lista de empleados que coinciden con el rol seleccionado (ej. Comercial, Gerente).
 
+Código usado en la API --> app.py
+````python
+@app.route('/users/role/<string:role_name>', methods=['GET'])
+def get_users_by_role(role_name):
+    """
+    Objetivo: Obtener todos los empleados con un rol específico (ej. Comercial).
+    Implementación: Usando QUERY sobre el GSI RoleIndex en la tabla CUsers.
+    """
+    try:
+        partition_key_value = f'ROLE#{role_name}' 
+        
+        response = USERS_TABLE.query(
+            IndexName=ROLE_INDEX_GSI,
+            KeyConditionExpression=Key('Filtro_1_PK').eq(partition_key_value)
+        )
+        
+        users = response.get('Items', [])
+        
+        return jsonify({
+            "role": role_name,
+            "count": len(users),
+            "employees": users
+        })
+
+    except Exception as e:
+        print(f"Error al obtener usuarios por rol: {e}")
+        return jsonify({"error": "Error interno del servidor o de la BD.", "details": str(e)}), 500
+
+````
+<br>
+
 ![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS1.png)
 
 ![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS2.png)
@@ -311,6 +342,37 @@ La **Sección 3**  de la web para obtener el inventario completo y filtrarlo por
 
 * **Implementación:** La web hace un `GET /vehicles` al inicio para comprobar los 55 ítems y luego aplica filtros en JavaScript.
 * **Resultado:** Mostramos el JSON completo del vehículo que coincida con la selección, lo cual es útil para auditorías, por ejemplo
+
+Código usado en la API --> app.py:
+```python
+@app.route('/vehicles/<string:vin>', methods=['GET'])
+def get_vehicle_by_vin(vin):
+    """
+    Objetivo: Obtener los detalles de un vehículo usando su VIN.
+    Implementación: Usando GetItem. Devuelve 404 si no existe.
+    """
+    try:
+        response = INVENTORY_TABLE.get_item(
+            Key={
+                'PK': f'VEHICLE#{vin}',
+                'SK': f'DETAILS#{vin}'
+            }
+        )
+        
+        item = response.get('Item')
+        
+        if not item:
+            return jsonify({"message": f"Vehículo con VIN {vin} no encontrado."}), 404
+        
+        return jsonify(item)
+
+    except Exception as e:
+        print(f"Error al obtener el vehículo: {e}")
+        return jsonify({"error": "Error interno del servidor o de la BD."}), 500
+```
+
+![ Captura de la web](./imagenes/busqueda_detallada.png)
+
 
 
 ### 4.4. Consulta Obligatoria: Vehículos Disponibles
