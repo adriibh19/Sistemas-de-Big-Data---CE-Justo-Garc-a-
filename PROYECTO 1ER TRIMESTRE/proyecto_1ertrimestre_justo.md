@@ -277,7 +277,11 @@ La **Sección 1** de la web implementa la gestión completa del inventario (CRUD
 
 Al introducir un VIN que **NO existe** (ej. `MIPRIMERCOCHE1234`), la API nos devuelve un código **404**, lo que activa la lógica JavaScript para preguntar al usuario si desea **crear** el nuevo vehículo.
 
-![ Captura de la web mostrando la creación de un nuevo vehículo con el mensaje de confirmación de POST](./imagenes/gestion_avanzada.png)
+![ Captura de la web mostrando la creación de un nuevo vehículo con el mensaje de confirmación de POST](./imagenes/crearcoche1.png)
+
+![ Captura de la web mostrando la creación completa](./imagenes/crearcoche2.png)
+
+![ Captura de la web COMPROBANDO](./imagenes/crearcochecomprobaci.png)
 
 
 
@@ -293,7 +297,11 @@ En la **Sección 2**, utilizamos el GSI `RoleIndex` en la tabla `CUsers` para fi
 * **Endpoint Llamado:** `GET /users/role/{rol}`.
 * **Resultado:** Mostramos la lista de empleados que coinciden con el rol seleccionado (ej. Comercial, Gerente).
 
-![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/consulta_empleados.png)
+![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS1.png)
+
+![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS2.png)
+
+![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS3.png)
 
 
 
@@ -313,4 +321,35 @@ La **Sección 4** demuestra la consulta clave de nuestro proyecto, verificando q
 * **Endpoint Llamado:** `GET /vehicles/available` (Consulta pura).
 * **Resultado:** La tabla se llena con **39** vehículos disponibles, **ordenados de menor a mayor precio**.
 
+
+Código usado en la API --> app.py:
+```python
+@app.route('/vehicles/available', methods=['GET'])
+def get_available_vehicles():
+    """
+    Objetivo: Obtener todos los vehículos DISPONIBLES y ordenados por precio (de menor a mayor).
+    Implementación: Usando QUERY sobre el GSI StatusPriceIndex.
+    """
+    try:
+        response = INVENTORY_TABLE.query(
+            IndexName=STATUS_PRICE_GSI,
+            KeyConditionExpression=Key('Filtro_1_PK').eq('STATUS#Disponible')
+        )
+        
+        vehicles = response.get('Items', [])
+        
+        return jsonify({
+            "count": len(vehicles),
+            "vehicles": vehicles
+        })
+
+    except Exception as e:
+        print(f"Error al ejecutar la Consulta Compleja: {e}")
+        return jsonify({
+            "error": "Error de conexión o configuración del GSI/Tabla.",
+            "details": str(e)
+            }), 500
+```
+
+##### Comprobación: 
 ![ Captura de la web mostrando el resultado de la Consulta Compleja Obligatoria (39 vehículos disponibles y ordenados por precio)](./imagenes/consulta_obligatoria.png)
