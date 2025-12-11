@@ -277,6 +277,8 @@ La **Sección 1** de la web implementa la gestión completa del inventario (CRUD
 
 Al introducir un VIN que **NO existe** (ej. `MIPRIMERCOCHE1234`), la API nos devuelve un código **404**, lo que activa la lógica JavaScript para preguntar al usuario si desea **crear** el nuevo vehículo.
 
+
+##### Comprobación: 
 ![ Captura de la web mostrando la creación de un nuevo vehículo con el mensaje de confirmación de POST](./imagenes/crearcoche1.png)
 
 ![ Captura de la web mostrando la creación completa](./imagenes/crearcoche2.png)
@@ -328,6 +330,8 @@ def get_users_by_role(role_name):
 ````
 <br>
 
+##### Comprobación: 
+
 ![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS1.png)
 
 ![ Captura de la web mostrando el resultado de la consulta avanzada de empleados por rol](./imagenes/EMPLEADOS2.png)
@@ -370,7 +374,9 @@ def get_vehicle_by_vin(vin):
         print(f"Error al obtener el vehículo: {e}")
         return jsonify({"error": "Error interno del servidor o de la BD."}), 500
 ```
+<br>
 
+##### Comprobación: 
 ![ Captura de la web](./imagenes/busqueda_detallada.png)
 
 
