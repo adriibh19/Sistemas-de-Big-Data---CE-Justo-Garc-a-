@@ -308,6 +308,8 @@ La **Sección 1** de la web implementa la gestión completa del inventario (CRUD
 
 Al introducir un VIN que **NO existe** (ej. `MIPRIMERCOCHE1234`), la API nos devuelve un código **404**, lo que activa la lógica JavaScript para preguntar al usuario si desea **crear** el nuevo vehículo.
 
+**Nota:** Como el código de esta consulta era demasiado extenso, podemos verlo correctamente en el archivo app.py y en el index.js
+
 
 ##### Comprobación: 
 ![ Captura de la web mostrando la creación de un nuevo vehículo con el mensaje de confirmación de POST](./imagenes/crearcoche1.png)
