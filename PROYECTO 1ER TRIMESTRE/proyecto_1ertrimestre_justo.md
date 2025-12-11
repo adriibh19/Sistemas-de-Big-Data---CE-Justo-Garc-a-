@@ -378,33 +378,10 @@ La **Sección 3**  de la web para obtener el inventario completo y filtrarlo por
 * **Implementación:** La web hace un `GET /vehicles` al inicio para comprobar los 55 ítems y luego aplica filtros en JavaScript.
 * **Resultado:** Mostramos el JSON completo del vehículo que coincida con la selección, lo cual es útil para auditorías, por ejemplo
 
-Código usado en la API --> app.py:
-```python
-@app.route('/vehicles/<string:vin>', methods=['GET'])
-def get_vehicle_by_vin(vin):
-    """
-    Objetivo: Obtener los detalles de un vehículo usando su VIN.
-    Implementación: Usando GetItem. Devuelve 404 si no existe.
-    """
-    try:
-        response = INVENTORY_TABLE.get_item(
-            Key={
-                'PK': f'VEHICLE#{vin}',
-                'SK': f'DETAILS#{vin}'
-            }
-        )
-        
-        item = response.get('Item')
-        
-        if not item:
-            return jsonify({"message": f"Vehículo con VIN {vin} no encontrado."}), 404
-        
-        return jsonify(item)
 
-    except Exception as e:
-        print(f"Error al obtener el vehículo: {e}")
-        return jsonify({"error": "Error interno del servidor o de la BD."}), 500
-```
+**Nota:** Como el código de esta consulta era demasiado extenso, podemos verlo correctamente en el archivo app.py y en el index.js
+
+
 <br>
 
 ##### Comprobación: 
