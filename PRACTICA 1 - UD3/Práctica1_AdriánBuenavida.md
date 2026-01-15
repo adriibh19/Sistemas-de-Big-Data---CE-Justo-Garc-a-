@@ -158,6 +158,7 @@ print("Limpieza de datos finalizada con éxito!!!!!")
 ```
 
 ![ Captura](./imagenes/5.png)
+![ Captura](./imagenes/5_1.png)
 
 
 <br>
@@ -178,4 +179,4 @@ Porque la mediana es **robusta ante valores extremos**. En un dataset con fallos
 
 ## Conclusión
 Esta práctica demuestra que la limpieza de datos es el cimiento de cualquier proyecto de Big Data. Sin normalizar los nombres, corregir los errores de precio (en nuestro caso) o estandarizar las fechas, cualquier análisis posterior daría resultados incorrectos. 
-Un buen "programa/script" de limpieza transforma datos brutos y desordenados en información estructurada, fiable y lista 
+Un buen "programa/script" de limpieza transforma datos brutos y desordenados en información estructurada, fiable y lista  
