@@ -95,13 +95,13 @@ print("Muestra de fechas transformadas:")
 print(df_paso2[['id', 'fecha']].head(10))
 
 
-#PASO 5: Exportación (bitácora)
+#PASO 5:Exportación (bitácora)
 
 #5.1 Exportamos a JSON
 nombre_salida = 'ventas_limpias_AdrianBuenavida.json'
 df_paso2.to_json(nombre_salida, orient='records', indent=4)  #Guardamos los datos limpios en un archivo .json 
 
-# 5.2 Impresión de la Bitácora Final (REQUISITO OBLIGATORIO)
+#5.2 Impresión de bitácora  
 print("\n")
 print("        BITÁCORA - ADRIÁN BUENAVIDA")
 print("\n")

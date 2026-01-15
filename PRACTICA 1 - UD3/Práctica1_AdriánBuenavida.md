@@ -158,3 +158,24 @@ print("Limpieza de datos finalizada con éxito!!!!!")
 ```
 
 ![ Captura](./imagenes/5.png)
+
+
+<br>
+
+## Preguntas de reflexión
+
+1. **¿Cuántos registros se perdieron en total tras todo el proceso de limpieza?**
+Tras el proceso, solo hemos perdido **451 registros**, que corresponden a las filas que eran exactamente iguales (duplicados). Al imputar las cantidades negativas con la mediana en lugar de borrarlas, hemos conseguido salvar 298 filas, manteniendo un mayor nº de datos
+
+2. **¿Hubo algún caso de id repetido con datos distintos? ¿Cómo decidiste manejarlo para no perder información?**
+Sí, encontramos casos donde el ID era el mismo pero el resto de los datos variaban. Decidimos aplicar la limpieza sobre la fila completa; así, solo eliminamos el registro si todos sus campos son idénticos. 
+Esto nos permite no perder ventas reales que puedan tener un ID duplicado por un error del sistema
+
+3. **¿Por qué crees que es más seguro usar la mediana que la media para imputar precios en este dataset con errores manuales?**
+Porque la mediana es **robusta ante valores extremos**. En un dataset con fallos manuales, si alguien introduce un precio erróneo muy alto, la media subiría artificialmente. La mediana, al ser el valor central, nos da un precio mucho más real y evita que los errores distorsionen nuestras estadísticas
+
+<br>
+
+## Conclusión
+Esta práctica demuestra que la limpieza de datos es el cimiento de cualquier proyecto de Big Data. Sin normalizar los nombres, corregir los errores de precio (en nuestro caso) o estandarizar las fechas, cualquier análisis posterior daría resultados incorrectos. 
+Un buen "programa/script" de limpieza transforma datos brutos y desordenados en información estructurada, fiable y lista 
