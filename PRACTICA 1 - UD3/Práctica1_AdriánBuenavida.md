@@ -25,14 +25,14 @@ print(df.info())
 
 <br>
 
-## Paso 2: Fase de Limpieza estructural
+## Paso 2: Fase de limpieza estructural
 En esta etapa se han corregido las inconsistencias de la estructura del dataset sin perder volumen de información innecesariamente.
 
 
 **Qué hemos hecho:**
 
 1. **Eliminación de duplicados:** Detectamos y eliminamos **451** registros igueles mediante `drop_duplicates()`
-2. **Tratamiento de Cantidades Negativas:** Identificamos **298** registros con valores negativos. Así pues, calculamos la mediana de los valores positivos (siendo **6.0**) y la aplicamos para corregir dichos errores 
+2. **Tratamiento de cantidades negativas:** Identificamos **298** registros con valores negativos. Así pues, calculamos la mediana de los valores positivos (siendo **6.0**) y la aplicamos para corregir dichos errores 
 3. **Integridad de datos:** El uso de `.copy()` nos permite que `df_paso2` funcione como un objeto independiente, evitando conflictos de memoria en las siguientes transformaciones.
 
 **Código utilizado:**
@@ -43,3 +43,118 @@ df_paso2 = df_sin_duplicados.copy()
 ```
 
 ![ Captura](./imagenes/2.png)
+
+
+<br>
+
+
+<br>
+
+## Paso 3: Fase de transformación
+Aquí nos hemos enfocado en corregir los errores en los valores individuales de las celdas, especialmente en las columnas de precio y producto
+
+
+**Qué hemos hecho:**
+
+1. **Tratamiento de precios:** Detectamos que la columna `precio` tenía valores no numéricos ("ERR"). Para solucionarlo, utilizamos `pd.to_numeric` con el parámetro `errors='coerce'`, transformando estos errores en nulos (NaN) .
+
+2. **Mediana:** Calculamos la mediana de los precios (**755.41**) y la aplicamos para rellenar los huecos. Elegimos la mediana para asegurar que los valores extremos no desvíen la realidad estadística del dataset
+
+3. **Normalizamos de produtos:** limpiamos cadenas de texto con `strip()` para eliminar espacios en blanco y `capitalize()` para que todos los nombres de productos sigan un formato que sea igual
+
+**Código utilizado:**
+```python
+df_paso2['precio'] = pd.to_numeric(df_paso2['precio'], errors='coerce')
+df_paso2['precio'] = df_paso2['precio'].fillna(df_paso2['precio'].median())
+df_paso2['producto'] = df_paso2['producto'].str.strip().str.capitalize()
+```
+
+![ Captura](./imagenes/3.png)
+
+
+<br>
+
+<br>
+
+## Paso 4: Procesamiento de Fechas
+En esta parte, tenemos que estandarizar la columna `fecha`, ya que presentaba una mezcla de formatos numéricos
+
+
+**Qué hemos hecho:**
+
+1. **datetime:** Hemos empleado librería `datetime` para obtener la fecha actual del sistema como referencia
+
+2. **Cálculo de fechas relativas:** Hemos hecho una función capaz de detectar la palabra "ayer" y restarle un día a la fecha actual. 
+Mediante (`re`), hemos extraído el número de días de la frase "hace X dias"
+
+3. **Estandarización ISO:** Para lo demás, hemos heho la conversión al formato **YYYY-MM-DD**
+
+**Código utilizado:**
+```python
+def limpiar_fecha(fecha_str):
+    fecha_str = str(fecha_str).lower().strip()
+
+    #Obtenemos la fecha de hoy 
+    hoy = datetime.now() 
+    
+    #4.1"ayer"
+    if 'ayer' in fecha_str:
+        return (hoy - timedelta(days=1)).strftime('%Y-%m-%d')
+    
+    #4.2"hace X dias" 
+    match = re.search(r'hace (\d+) dias', fecha_str)   #re.search busca un patrón de texto. ejem: 'hace (\d+) dias' -> busca la palabra "hace", luego el número (\d+) y termina en "dias"
+    if match:
+        dias = int(match.group(1))
+        return (hoy - timedelta(days=dias)).strftime('%Y-%m-%d')
+    
+    #4.3 convertimos formatos estándar (como 12/05/2024) a ISO (2024-05-12)
+    try:
+        return pd.to_datetime(fecha_str).strftime('%Y-%m-%d')
+    
+    except:
+        return fecha_str
+
+
+#Aplicamos función a la columna fecha
+df_paso2['fecha'] = df_paso2['fecha'].apply(limpiar_fecha)
+```
+
+![ Captura1](./imagenes/4_1.png)
+![ Captura2](./imagenes/4_2.png)
+
+
+
+<br>
+
+
+<br>
+
+## Paso 5: Exportación 
+Para finalizar nuestra práctica, hemos guardado los datos ya limpios y generado un reporte final con los resultados obtenidos tras todo el procesamiento
+
+**Qué hemos hecho:**
+
+1. **Exportación a JSON:** Hemos generado el archivo `ventas_limpias_AdrianBuenavida.json` utilizando el formato `records`. Hemos aplicado una indentación de 4 espacios para que el archivo sea fácil de leer 
+
+2. **Bitácora final:** damos por consola el resumen de lo que hemos realizado. Con ello, podemos confirmar que partimos de **15,451** registros y logramos ""preparar"" tanto los duplicados como los errores en cantidades y precios
+
+**Código utilizado:**
+```python
+nombre_salida = 'ventas_limpias_AdrianBuenavida.json'
+df_paso2.to_json(nombre_salida, orient='records', indent=4)
+
+print("\n")
+print("        BITÁCORA - ADRIÁN BUENAVIDA")
+print("\n")
+
+print(f"Total de filas iniciales:               {len(df)}")
+print(f"Filas eliminadas por duplicidad:        {filas_duplicadas}")
+print(f"Registros negativos corregidos:         {registros_negativos}")
+print(f"Mediana aplicada a precios:             {mediana_precios:.2f}")
+print(f"Archivo de salida generado:             {nombre_salida}")
+
+print("\n")
+print("Limpieza de datos finalizada con éxito!!!!!")
+```
+
+![ Captura](./imagenes/5.png)
