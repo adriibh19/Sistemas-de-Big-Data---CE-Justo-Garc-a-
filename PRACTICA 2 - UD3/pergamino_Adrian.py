@@ -32,7 +32,7 @@ while url_actual:
     #Pequeña pausa para no saturar l API
     time.sleep(0.2)
 
-print(f"\n Extracción acabada!!! . Hemos detectado {len(lista_pokemon_basica)} Pokeemon")
+print(f"\n 1a extracción acabada!!! . Hemos detectado {len(lista_pokemon_basica)} Pokeemon")
 
 
 
@@ -48,6 +48,7 @@ for pokemon in lista_pokemon_basica[:30]:
     res_detalle = requests.get(pokemon['url'])
     d = res_detalle.json()
     
+    #Extraemos solo los 4 campos que nos pide la práctica
     datos_finales.append({
         'name': d['name'],
         'height': d['height'],

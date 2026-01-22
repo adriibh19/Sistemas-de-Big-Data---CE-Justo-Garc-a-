@@ -59,6 +59,8 @@ df = pd.DataFrame(datos_finales)
 ```
 
 ![ Captura2](./imagenes/2.png)
+![ Captura2](./imagenes/2_2.png)
+
 
 <br>
 
