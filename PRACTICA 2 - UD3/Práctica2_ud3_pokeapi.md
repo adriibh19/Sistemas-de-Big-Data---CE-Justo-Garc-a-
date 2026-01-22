@@ -59,3 +59,62 @@ df = pd.DataFrame(datos_finales)
 ```
 
 ![ Captura2](./imagenes/2.png)
+
+<br>
+
+## Paso 3: Fase de Transformación (Cálculo del IMC)
+En esta etapa hemos convertido los datos en información estadística mediante lo que conocemos como ingeniería de características
+
+**estrategia:**
+1. **Normalización de unidades:** Dado que la API usa decímetros y hectogramos, hemos transformado los valores a **metros** y **kilogramos** 
+
+2. **Cálculo del IMC:** Hemos aplicado la fórmula matemática del BMI (consultada en internet), generando una nueva columna que nos permite analizar cada elemento de forma automática
+
+3. **Limpieza visual:** Hemos redondeado el resultado a dos decimales para que el "pergamino" final se lea mucho mejor
+
+**Código utilizado:**
+```python
+#Convertimos unidades y calculamos el IMC
+df['height_m'] = df['height'] / 10
+df['weight_kg'] = df['weight'] / 10
+df['bmi'] = (df['weight_kg'] / (df['height_m'] ** 2)).round(2)
+```
+
+![ Captura3](./imagenes/3.png)
+
+<br>
+
+## Paso 4: Guardado del pergamino
+Para finalizar , hemos procedido a volcar toda la información procesada en un archivo local
+
+**Qué hemos hecho:**
+1. **Generación del entregable:** Hemos exportado el df final a un archivo llamado `pergamino_AdrianBuenavida.csv`.
+
+2. **Independencia de datos:** Al almacenar los datos localmente, aseguramos que podamos consultarlos sin necesidad de realizar nuevas peticiones a la PokéAPI, asegurando la disponibilidad de la información que ya hemos transformado
+
+**Código utilizado:**
+```python
+#Guard archivo final en CSV
+df.to_csv("pergamino_AdrianBuenavida.csv", index=False)
+```
+
+![ Captura4](./imagenes/4.png)
+
+
+<br>
+
+## Preguntas de reflexión
+
+1. **¿Por qué es importante actualizar la URL con el enlace next en lugar de simplemente incrementar un número de página manualmente?**
+Porque no todas las APIs usan números de página correlativos. Al usar el enlace `next` que nos da el servidor, nos aseguramos de seguir la ruta original y oficiaal, evitando errores si cambia la estructura de los datos o el tamaño de las páginas
+
+2. **¿Qué ventaja tiene normalizar las unidades dentro del propio proceso ETL en lugar de hacerlo después en una hoja de cálculo?**
+Garantiza que los datos lleguen ya listos para usar y permite automatizar el cálculo para miles de registros de forma muy rápida, evitando errores manuales 
+
+3. **Si la API tuviera un límite de 1000 registros por página, ¿cómo afectaría esto al rendimiento de tu script?**
+El rendimiento mejoraría notablemente en la fase de paginación (nuestro paso 1), ya que tendríamos que realizar menos peticiones para obtener la lista completa, ahorrando tiempo
+
+<br>
+
+## Conclusión
+Automatizar la extracción mediante APIs es clave en Big Data para obtener datos actualizados en tiempo real y procesar grandes volúmenes de información sin intervención humana. Este proceso transforma datos en activos fiables y estructurados para el análisis

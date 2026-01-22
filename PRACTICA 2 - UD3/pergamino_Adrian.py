@@ -37,37 +37,93 @@ print(f"\n Extracción acabada!!! . Hemos detectado {len(lista_pokemon_basica)} 
 
 
 
-#PASO 2: Extracción de detalles individuales de cada Pokémon
-print("\n--> PASO 2: Iniciando LA EXTRACCIÓN de detalles individuales")
+#PASO 2 (mejor opcion y más rápida): detalles individuales de cada Pokémon
+
+print("\n--> PASO 2: Extrayendo detalles individuales de cada Pokémon...")
 
 datos_finales = []
-contador = 0
 
-#Recorremos lista de URLs que conseguimos en el paso1
-for pokemon in lista_pokemon_basica:
-    contador += 1
-
-    #hacemos la petición al detalle de cada pokemon
+#Limitamos a los primeros 30 para que el script termine rápido 
+for pokemon in lista_pokemon_basica[:30]:
     res_detalle = requests.get(pokemon['url'])
     d = res_detalle.json()
     
-    #Extraemos solo los 4 campos que nos pide l
-    info_pokemon = {
+    datos_finales.append({
         'name': d['name'],
         'height': d['height'],
         'weight': d['weight'],
         'base_experience': d['base_experience']
-    }
-    
-    datos_finales.append(info_pokemon)
-    
-    #Imprimimos 100 para no saturar
-    if contador % 100 == 0:
-        print(f"Procesados {contador} de {len(lista_pokemon_basica)} ninjas...")
+    })
+    print(f"Ninja extraído: {d['name']}")
 
-#Convertimos nuestra lista en un df de pandas
+#Creamos el DataFrame
 df = pd.DataFrame(datos_finales)
 
-print("\n extracción finalizada con éxito !!!")
+print("\n --> Paso 2 finalizado con éxito !!!")
 print(df.head())
+
+
+
+#opción que tenía puesta al principio, pero muchísima mas lenta porque hacía muchas peticiones
+
+#print("\n--> PASO 2: Iniciando LA EXTRACCIÓN de detalles individuales")
+
+#datos_finales = []
+#contador = 0
+
+#Recorremos lista de URLs que conseguimos en el paso1
+#for pokemon in lista_pokemon_basica:
+#    contador += 1
+
+ #   #hacemos la petición al detalle de cada pokemon
+  #  res_detalle = requests.get(pokemon['url'])
+   # d = res_detalle.json()
+    
+    #Extraemos solo los 4 campos que nos pide l
+    #info_pokemon = {
+     #   'name': d['name'],
+      #  'height': d['height'],
+       # 'weight': d['weight'],
+        #'base_experience': d['base_experience']
+    #}
+    
+    #datos_finales.append(info_pokemon)
+    
+    #Imprimimos 2000 para no saturar
+    #if contador % 200 == 0:
+     #   print(f"Procesados {contador} de {len(lista_pokemon_basica)} ninjas...")
+
+#Convertimos nuestra lista en un df de pandas
+#df = pd.DataFrame(datos_finales)
+
+#print("\n extracción finalizada con éxito !!!")
+#print(df.head())
+
+
+
+
+
+#PASO 3: IMC
+print("\n--> PASO 3: Calculando el IMC...")
+
+#Convertimos las unidades de la API a metros y kilos
+df['height_m'] = df['height'] / 10
+df['weight_kg'] = df['weight'] / 10
+df['bmi'] = (df['weight_kg'] / (df['height_m'] ** 2)).round(2)
+
+print(df[['name', 'height_m', 'weight_kg', 'bmi']].head())
+
+
+
+# PASO 4: Guardado
+print("\n--> PASO 4: Guardando pergamino...")
+df.to_csv("pergamino_AdrianBuenavida.csv", index=False)
+
+print("Archivo generado con éxito!")
+
+
+
+
+
+
 
