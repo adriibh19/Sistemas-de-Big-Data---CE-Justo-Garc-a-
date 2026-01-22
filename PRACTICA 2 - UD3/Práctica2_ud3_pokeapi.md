@@ -2,7 +2,7 @@
 **Autor:** Adrián Buenavida
 
 ## Descripción de la práctica
-En esta misión nos adentramos en la PokéAPI para realizar una extracción de datos. 
+En esta práctica nos adentramos en la PokéAPI para realizar una extracción de datos. 
 El objetivo es recolectar información sobre todos los Pokémon registrados, transformarla y almacenarla en nuestro pc.
 
 ---
@@ -14,12 +14,12 @@ Dado que la API no entrega toda la información en una sola petición, hemos imp
 **estrategia:**
 1. **Bucle while:** Hemos configurado un bucle que se mantiene activo mientras la clave `next` de la respuesta JSON contenga una URL válida.
 
-2. **Recolección de URLs:** En cada iteración, guardamos el nombre y la URL de detalle de cada Pokémon en una lista global utilizando el método `extend()`.
+2. **URLs:** En cada iteración, guardamos el nombre y la URL de detalle de cada Pokémon en una lista global utilizando el método `extend()`.
 
-3. **Respeto de tiempos:** Hemos incluido una pausa mínima (`time.sleep`) entre peticiones para garantizar la estabilidad de la conexión y no saturar el servidor de la PokéAPI.
+3. **tiempos:** Hemos incluido una pausa mínima (`time.sleep`) entre peticiones para garantizar la estabilidad de la conexión y no saturar el servidor de la PokéAPI.
 
 
-**Código utilizado:**
+**Código:**
 ```python
 while url_actual:
     respuesta = requests.get(url_actual)
@@ -42,7 +42,7 @@ Una vez obtenida la lista de nombres y direcciones, hemos prealizado una segunda
 
 2. **Filtrado de campos:** Dado que el JSON original de la API es muy extenso, hemos realizado un filtrado manual para extraer únicamente cuatro campos: `name`, `height`, `weight` y `base_experience`
 
-3. **Conversión a estructura tabular:** Finalmente, hemos volcado toda la información en un **df de pandas** para facilitar las transformaciones posteriores
+3. **Conversión a estructura:** Finalmente, hemos volcado toda la información en un **df de pandas** para facilitar las transformaciones posteriores
 
 **Código utilizado:**
 ```python
@@ -72,7 +72,7 @@ En esta etapa hemos convertido los datos en información estadística mediante l
 
 2. **Cálculo del IMC:** Hemos aplicado la fórmula matemática del BMI (consultada en internet), generando una nueva columna que nos permite analizar cada elemento de forma automática
 
-3. **Limpieza visual:** Hemos redondeado el resultado a dos decimales para que el "pergamino" final se lea mucho mejor
+3. **Limpieza:** Hemos redondeado el resultado a dos decimales para que el "pergamino" final se lea mucho mejor
 
 **Código utilizado:**
 ```python
@@ -90,7 +90,7 @@ df['bmi'] = (df['weight_kg'] / (df['height_m'] ** 2)).round(2)
 Para finalizar , hemos procedido a volcar toda la información procesada en un archivo local
 
 **Qué hemos hecho:**
-1. **Generación del entregable:** Hemos exportado el df final a un archivo llamado `pergamino_AdrianBuenavida.csv`.
+1. **entregable:** Hemos exportado el df final a un archivo llamado `pergamino_AdrianBuenavida.csv`.
 
 2. **Independencia de datos:** Al almacenar los datos localmente, aseguramos que podamos consultarlos sin necesidad de realizar nuevas peticiones a la PokéAPI, asegurando la disponibilidad de la información que ya hemos transformado
 
