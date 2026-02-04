@@ -1,0 +1,501 @@
+Nombre,Símbolo,Precio,Market Cap,Volumen 24h
+CoinMarketCap 20 Index DTF,CMC20,148.92,8.24M,4523652
+Bitcoin,BTC,72539.17,1.44T,72466154938
+Ethereum,ETH,2109.85,253.53B,50720055172
+Tether,USDT,0.9981,185.39B,149292721389
+BNB,BNB,718.04,97.71B,3138954281
+XRP,XRP,1.50,91.82B,4473412810
+USDC,USDC,0.9996,70.78B,21550698817
+Solana,SOL,90.31,51.17B,7239441353
+TRON,TRX,0.2820,26.71B,854678109
+Dogecoin,DOGE,0.1017,17.16B,1883503523
+Bitcoin Cash,BCH,515.78,10.31B,637858165
+Cardano,ADA,0.2831,10.21B,832834648
+Hyperliquid,HYPE,33.82,8.81B,817146846
+UNUS SED LEO,LEO,8.82,8.13B,2281444
+Monero,XMR,375.53,6.93B,119758051
+Canton,N/A,0.18,0,0
+Ethena USDe,N/A,1.00,0,0
+Chainlink,N/A,9.10,0,0
+Stellar,N/A,0.17,0,0
+Dai,N/A,1.00,0,0
+World Liberty Financial USD,N/A,1.00,0,0
+Litecoin,N/A,57.15,0,0
+Zcash,N/A,258.25,0,0
+Avalanche,N/A,9.59,0,0
+Sui,N/A,1.06,0,0
+Shiba Inu,N/A,0.00,0,0
+Hedera,N/A,0.09,0,0
+PayPal USD,N/A,1.00,0,0
+World Liberty Financial,N/A,0.13,0,0
+Toncoin,N/A,1.37,0,0
+Cronos,N/A,0.08,0,0
+Tether Gold,N/A,4893.57,0,0
+Polkadot,N/A,1.43,0,0
+Uniswap,N/A,3.68,0,0
+PAX Gold,N/A,4922.39,0,0
+Mantle,N/A,0.69,0,0
+Bitget Token,N/A,2.97,0,0
+Bittensor,N/A,185.31,0,0
+MemeCore,N/A,1.48,0,0
+Aave,N/A,120.25,0,0
+OKB,N/A,80.52,0,0
+Pepe,N/A,0.00,0,0
+Global Dollar,N/A,1.00,0,0
+Ripple USD,N/A,1.00,0,0
+MYX Finance,N/A,5.84,0,0
+NEAR Protocol,N/A,1.13,0,0
+Ethereum Classic,N/A,9.18,0,0
+Internet Computer,N/A,2.58,0,0
+Aster,N/A,0.54,0,0
+Sky,N/A,0.06,0,0
+Pi,N/A,0.16,0,0
+Ondo,N/A,0.27,0,0
+KuCoin Token,N/A,8.76,0,0
+Polygon (prev. MATIC),N/A,0.11,0,0
+Worldcoin,N/A,0.40,0,0
+Ethena,N/A,0.13,0,0
+USDD,N/A,1.00,0,0
+Cosmos,N/A,2.00,0,0
+OFFICIAL TRUMP,N/A,4.10,0,0
+Aptos,N/A,1.21,0,0
+Algorand,N/A,0.10,0,0
+GateToken,N/A,7.51,0,0
+Kaspa,N/A,0.03,0,0
+Flare,N/A,0.01,0,0
+Midnight,N/A,0.05,0,0
+Pump.fun,N/A,0.00,0,0
+Quant,N/A,64.71,0,0
+Filecoin,N/A,1.04,0,0
+Render,N/A,1.49,0,0
+United Stables,N/A,1.00,0,0
+Arbitrum,N/A,0.13,0,0
+VeChain,N/A,0.01,0,0
+XDC Network,N/A,0.03,0,0
+Jupiter,N/A,0.19,0,0
+Bonk,N/A,0.00,0,0
+Sei,N/A,0.08,0,0
+Stacks,N/A,0.28,0,0
+LayerZero,N/A,1.74,0,0
+Dash,N/A,40.49,0,0
+PancakeSwap,N/A,1.50,0,0
+Tezos,N/A,0.46,0,0
+TrueUSD,N/A,1.00,0,0
+Nexo,N/A,0.75,0,0
+Morpho,N/A,1.27,0,0
+Story,N/A,1.31,0,0
+Stable,N/A,0.03,0,0
+Pudgy Penguins,N/A,0.01,0,0
+Chiliz,N/A,0.04,0,0
+First Digital USD,N/A,1.00,0,0
+EURC,N/A,1.18,0,0
+Optimism,N/A,0.22,0,0
+Virtuals Protocol,N/A,0.62,0,0
+Artificial Superintelligence Alliance,N/A,0.18,0,0
+Curve DAO Token,N/A,0.27,0,0
+Lighter,N/A,1.45,0,0
+Kaia,N/A,0.06,0,0
+DoubleZero,N/A,0.10,0,0
+JUST,N/A,0.04,0,0
+Injective,N/A,3.45,0,0
+Sun [New],N/A,0.02,0,0
+Immutable,N/A,0.17,0,0
+Decred,DCR,19.76,341.13M,6934671
+ether.fi,ETHFI,0.4862,340.06M,54329877
+BitTorrent [New],BTT,0.063412,336.82M,29077223
+Maple Finance,SYRUP,0.2897,335.28M,25444946
+Lido DAO,LDO,0.3951,335.08M,52585048
+AINFT,NFT,0.063364,333.13M,46621088
+Aerodrome Finance,AERO,0.3536,323.71M,24726874
+River,RIVER,16.47,322.98M,73252642
+FLOKI,FLOKI,0.00003334,318.05M,67827990
+IOTA,IOTA,0.07375,315.6M,17616316
+Humanity Protocol,H,0.1295,312.38M,67971599
+Celestia,TIA,0.3567,312.34M,38095483
+The Graph,GRT,0.02842,304.24M,28868854
+Gnosis,GNO,110.36,291.28M,6757183
+JasmyCoin,JASMY,0.005801,286.88M,25465681
+Trust Wallet Token,N/A,0.66,0,0
+Starknet,N/A,0.05,0,0
+Bitcoin SV,N/A,14.06,0,0
+Conflux,N/A,0.05,0,0
+SPX6900,N/A,0.30,0,0
+Pyth Network,N/A,0.05,0,0
+AB,N/A,0.00,0,0
+Kite,N/A,0.15,0,0
+Telcoin,N/A,0.00,0,0
+Axie Infinity,N/A,1.53,0,0
+The Sandbox,N/A,0.10,0,0
+Ethereum Name Service,N/A,6.47,0,0
+dogwifhat,N/A,0.24,0,0
+Pendle,N/A,1.46,0,0
+Sentient,N/A,0.03,0,0
+Neo,N/A,3.06,0,0
+Gala,N/A,0.00,0,0
+Decentraland,N/A,0.11,0,0
+Golem,N/A,0.21,0,0
+Theta Network,N/A,0.21,0,0
+Fartcoin,N/A,0.21,0,0
+Onyxcoin,N/A,0.01,0,0
+ZKsync,N/A,0.02,0,0
+Terra Classic,N/A,0.00,0,0
+Monad,N/A,0.02,0,0
+Compound,N/A,19.08,0,0
+Fluid,N/A,2.44,0,0
+Convex Finance,N/A,1.90,0,0
+Zebec Network,N/A,0.00,0,0
+DeXe,N/A,2.15,0,0
+Falcon Finance,N/A,0.08,0,0
+pippin,N/A,0.18,0,0
+Basic Attention Token,N/A,0.12,0,0
+MX Token,N/A,1.90,0,0
+Vision,N/A,0.05,0,0
+OriginTrail,N/A,0.34,0,0
+Raydium,N/A,0.64,0,0
+BUILDon,N/A,0.17,0,0
+eCash,N/A,0.00,0,0
+Plasma,N/A,0.09,0,0
+Helium,N/A,0.87,0,0
+Lombard,N/A,0.71,0,0
+Arweave,N/A,2.40,0,0
+WEMIX,N/A,0.33,0,0
+THORChain,N/A,0.43,0,0
+1inch,N/A,0.11,0,0
+Vaulta,N/A,0.09,0,0
+Open Campus,N/A,0.17,0,0
+Walrus,N/A,0.09,0,0
+EigenCloud,N/A,0.24,0,0
+DeepBook Protocol,N/A,0.03,0,0
+SafePal,N/A,0.28,0,0
+Sonic,N/A,0.05,0,0
+MultiversX,N/A,4.61,0,0
+Amp,N/A,0.00,0,0
+币安人生,N/A,0.13,0,0
+0G,N/A,0.59,0,0
+Livepeer,N/A,2.53,0,0
+AWE,N/A,0.06,0,0
+Kamino,N/A,0.03,0,0
+Jito,N/A,0.28,0,0
+Beam,N/A,0.00,0,0
+Wormhole,N/A,0.02,0,0
+Official Melania Meme,N/A,0.12,0,0
+Oasis,N/A,0.02,0,0
+Gas,N/A,1.80,0,0
+Horizen,N/A,6.55,0,0
+ZORA,N/A,0.03,0,0
+Meteora,N/A,0.23,0,0
+Theta Fuel,N/A,0.02,0,0
+Reserve Rights,N/A,0.00,0,0
+FTX Token,N/A,0.33,0,0
+Cheems (cheems.pet),N/A,0.00,0,0
+Zilliqa,N/A,0.01,0,0
+Qtum,N/A,1.03,0,0
+Synthetix,N/A,0.32,0,0
+Irys,N/A,0.05,0,0
+ApeCoin,N/A,0.14,0,0
+Aethir,N/A,0.01,0,0
+dYdX,N/A,0.12,0,0
+Dog (Bitcoin),N/A,0.00,0,0
+Fogo,N/A,0.03,0,0
+Ravencoin,N/A,0.01,0,0
+Stargate Finance,N/A,0.15,0,0
+YZY MONEY,N/A,0.33,0,0
+Rain,RAIN,0.009448,3.21B,38239229
+Falcon USD,USDf,0.9937,1.91B,5155558
+Jupiter Perps LP,JLP,3.79,1.4B,52557620
+Ondo US Dollar Yield,USDY,1.11,703.09M,1422347
+Beldex,BDX,0.08032,610.93M,11904933
+Usual USD,USD0,0.9981,583.48M,7278705
+GHO,GHO,0.9997,523.89M,2011849
+USDai,USDAI,0.9988,500.76M,2153681
+Fasttoken,FTN,1.08,474.47M,12443189
+c8ntinuum,CTM,0.09321,406.37M,742174
+Legacy Frax Dollar,FRAX,0.9912,273.73M,14679735
+Undeads Games,UDS,2.19,218.13M,535987
+Ape and Pepe,APEPE,0.051006,211.31M,20753912
+Ultima,ULTIMA,5633.22,210.73M,20834204
+Zeebu,ZBU,0.4648,192.29M,69178
+SwissBorg,N/A,0.20,0,0
+WeFi,N/A,2.36,0,0
+AUSD,N/A,1.00,0,0
+Aster USDF,N/A,1.00,0,0
+48 Club Token,N/A,47.90,0,0
+GUSD,N/A,1.00,0,0
+SoSoValue,N/A,0.51,0,0
+Loaded Lions,N/A,0.00,0,0
+Rollbit Coin,N/A,0.08,0,0
+Zano,N/A,9.09,0,0
+Ailey,N/A,0.31,0,0
+GoМining,N/A,0.33,0,0
+StandX DUSD,N/A,1.00,0,0
+Keeta,N/A,0.27,0,0
+ADI,N/A,2.45,0,0
+BitMart Token,N/A,0.38,0,0
+Ribbita by Virtuals,N/A,0.12,0,0
+Frax USD,N/A,1.00,0,0
+Concordium,N/A,0.01,0,0
+Yooldo,N/A,0.41,0,0
+ViciCoin,N/A,17.59,0,0
+SLT,N/A,12.49,0,0
+The White Whale,N/A,0.10,0,0
+MNEE,N/A,1.00,0,0
+Akash Network,N/A,0.34,0,0
+yearn.finance,N/A,2765.22,0,0
+Defi App,N/A,0.03,0,0
+Flow,N/A,0.06,0,0
+Solana Mobile Seeker,N/A,0.02,0,0
+0x Protocol,N/A,0.11,0,0
+Verge,N/A,0.01,0,0
+Four,N/A,0.24,0,0
+Nervos Network,N/A,0.00,0,0
+Venice Token,N/A,2.08,0,0
+Unibase,N/A,0.04,0,0
+CoW Protocol,N/A,0.16,0,0
+Core,N/A,0.08,0,0
+Mina,N/A,0.07,0,0
+SuperVerse,N/A,0.14,0,0
+Creditcoin,N/A,0.17,0,0
+RaveDAO,N/A,0.37,0,0
+NEXPACE,N/A,0.36,0,0
+Kusama,N/A,4.82,0,0
+Brett (Based),N/A,0.01,0,0
+Threshold,N/A,0.01,0,0
+Aleo,N/A,0.10,0,0
+KAITO,N/A,0.35,0,0
+DigiByte,N/A,0.00,0,0
+Toshi,N/A,0.00,0,0
+Nano,N/A,0.61,0,0
+Shuffle,N/A,0.22,0,0
+Turbo,N/A,0.00,0,0
+Moonbirds,N/A,0.28,0,0
+Baby Doge Coin,N/A,0.00,0,0
+AI Rig Complex,N/A,0.08,0,0
+Movement,N/A,0.02,0,0
+Safe,N/A,0.11,0,0
+KUB Coin,N/A,1.13,0,0
+PlaysOut,N/A,0.10,0,0
+EUR CoinVertible,N/A,1.18,0,0
+Alchemy Pay,N/A,0.01,0,0
+Pieverse,N/A,0.41,0,0
+lisUSD,N/A,1.00,0,0
+AIOZ Network,N/A,0.06,0,0
+Alchemist AI,N/A,0.09,0,0
+RealLink,N/A,0.05,0,0
+Ronin,N/A,0.10,0,0
+Velo,N/A,0.00,0,0
+U.S. Dollar Tokenized Currency (Ondo),N/A,1.00,0,0
+Numeraire,N/A,9.81,0,0
+SOON,N/A,0.18,0,0
+Siacoin,N/A,0.00,0,0
+USDH,N/A,1.00,0,0
+Request,N/A,0.09,0,0
+ZetaChain,N/A,0.06,0,0
+Frax (prev. FXS),N/A,0.77,0,0
+SPACE ID,N/A,0.06,0,0
+Axelar,N/A,0.06,0,0
+Comedian,N/A,0.07,0,0
+Waves,N/A,0.59,0,0
+XPR Network,N/A,0.00,0,0
+Holo,N/A,0.00,0,0
+Pirate Chain,N/A,0.36,0,0
+Astar,N/A,0.01,0,0
+Magic Eden,N/A,0.15,0,0
+Mog Coin,MOG,0.061758,68.69M,9158732
+VVS Finance,VVS,0.051560,67.99M,798608
+Paycoin,PCI,0.06377,67.8M,453398
+MindWaveDAO,NILA,0.08043,67.78M,354565
+aelf,ELF,0.08273,67.73M,3785432
+siren,SIREN,0.09257,67.47M,12386421
+Dohrnii,DHN,3.93,67.23M,166314
+Qubic,QUBIC,0.064989,67.21M,1474547
+MultiBank Group,MBG,0.3502,66.88M,19514626
+World Mobile Token,WMTX,0.08044,66.54M,1408642323
+Tesla tokenized stock (xStock),TSLAX,401.78,66.09M,9006141
+InitVerse,INI,0.1209,66.06M,1348283
+Kava,KAVA,0.06094,66M,5949971
+MetYa,MY,0.06577,65.41M,7614614
+Moca Network,MOCA,0.01652,65.31M,13395798
+ssv.network,N/A,4.00,0,0
+Alphabet Class A Tokenized Stock (Ondo),N/A,330.93,0,0
+SushiSwap,N/A,0.23,0,0
+Impossible Cloud Network,N/A,0.39,0,0
+ORDI,N/A,3.07,0,0
+GMX,N/A,6.17,0,0
+Quack AI,N/A,0.02,0,0
+Matrixdock Gold,N/A,4887.64,0,0
+Zama,N/A,0.03,0,0
+XYO,N/A,0.00,0,0
+Rekt (rekt.com),N/A,0.00,0,0
+VeThor Token,N/A,0.00,0,0
+Berachain,N/A,0.42,0,0
+Succinct,N/A,0.32,0,0
+RedStone,N/A,0.20,0,0
+WhiteRock,N/A,0.00,0,0
+Venus BUSD,N/A,0.02,0,0
+Blur,N/A,0.02,0,0
+Merlin Chain,N/A,0.05,0,0
+IoTeX,N/A,0.01,0,0
+GEODNET,N/A,0.14,0,0
+Bio Protocol,N/A,0.03,0,0
+Sign,N/A,0.04,0,0
+Linea,N/A,0.00,0,0
+cat in a dogs world,N/A,0.00,0,0
+Decentralized Social,N/A,6.48,0,0
+Avantis,N/A,0.22,0,0
+Plume,N/A,0.01,0,0
+Status,N/A,0.01,0,0
+HashKey Platform Token,N/A,0.16,0,0
+Anchored Coins AEUR,N/A,1.18,0,0
+Venus,N/A,3.45,0,0
+ChainOpera AI,N/A,0.30,0,0
+MANTRA,N/A,0.05,0,0
+Victoria VR,N/A,0.00,0,0
+Law Blocks (AI),N/A,0.22,0,0
+Drift,N/A,0.10,0,0
+Cysic,N/A,0.34,0,0
+ZIGChain,N/A,0.04,0,0
+Popcat (SOL),N/A,0.06,0,0
+Vitalum,N/A,0.16,0,0
+Peanut the Squirrel,N/A,0.05,0,0
+Loopring,N/A,0.04,0,0
+BitDCA,N/A,0.70,0,0
+BSquared Network,N/A,0.78,0,0
+Subsquid,N/A,0.05,0,0
+VNDC,N/A,0.00,0,0
+Jelly-My-Jelly,N/A,0.05,0,0
+Grass,N/A,0.21,0,0
+Ankr,N/A,0.01,0,0
+Celo,N/A,0.09,0,0
+ETHGas,N/A,0.03,0,0
+Vana,N/A,1.71,0,0
+QuantixAI,N/A,63.15,0,0
+Dusk,N/A,0.10,0,0
+Spark,N/A,0.02,0,0
+Mask Network,N/A,0.50,0,0
+Moo Deng (moodengsol.com),N/A,0.05,0,0
+UnifAI Network,N/A,0.21,0,0
+Orca,N/A,0.83,0,0
+UPCX,N/A,0.50,0,0
+MobileCoin,N/A,0.25,0,0
+Centrifuge,N/A,0.09,0,0
+Sologenic,N/A,0.13,0,0
+Eurite,N/A,1.18,0,0
+Huma Finance,N/A,0.02,0,0
+Ardor,N/A,0.05,0,0
+ISLM,N/A,0.02,0,0
+StorX Network,N/A,0.07,0,0
+StraitsX USD,N/A,1.00,0,0
+Altlayer,N/A,0.01,0,0
+UMA,N/A,0.54,0,0
+Memecoin,N/A,0.00,0,0
+Gemini Dollar,N/A,1.00,0,0
+Chia,N/A,3.32,0,0
+Sahara AI,N/A,0.02,0,0
+Fractal Bitcoin,N/A,0.50,0,0
+Polymesh,N/A,0.05,0,0
+Pax Dollar,N/A,1.00,0,0
+Casper,N/A,0.00,0,0
+ICON,N/A,0.04,0,0
+Apertum,N/A,0.61,0,0
+LCX,N/A,0.05,0,0
+Ontology,N/A,0.05,0,0
+GOHOME,N/A,93.06,0,0
+Non-Playable Coin,NPC,0.006166,46.48M,11932766
+Pundi X (New),PUNDIX,0.1793,46.35M,2732649
+Storj,STORJ,0.1079,45.64M,7616499
+Constellation,DAG,0.01576,45.3M,1323700
+Terra,LUNA,0.06349,45.08M,13296095
+BORA,BORA,0.04078,44.85M,1161906
+Enjin Coin,ENJ,0.02303,44.47M,7856212
+Staika,STIK,0.3244,44.29M,21333
+Kinetiq,KNTQ,0.1639,44.28M,2002153
+DEAPcoin,DEP,0.001467,43.87M,294497
+AI Analysis Token,AIAT,0.2973,43.52M,368667
+Notcoin,NOT,0.0004364,43.4M,8615164
+Tornado Cash,TORN,8.24,43.38M,80873
+Tria,TRIA,0.02001,43.18M,207514872
+Tellor,N/A,15.65,0,0
+KGeN,N/A,0.20,0,0
+BIM,N/A,1.43,0,0
+MVL,N/A,0.00,0,0
+SKALE,N/A,0.01,0,0
+GeorgePlaysClashRoyale,N/A,0.04,0,0
+Rootstock Infrastructure Framework,N/A,0.04,0,0
+Somnia,N/A,0.20,0,0
+EGL1,N/A,0.04,0,0
+iExec RLC,N/A,0.49,0,0
+Band,N/A,0.25,0,0
+Gravity (by Galxe),N/A,0.00,0,0
+RateX,N/A,2.51,0,0
+Harmony,N/A,0.00,0,0
+Tokenlon Network Token,N/A,0.33,0,0
+Babylon,N/A,0.01,0,0
+GMT,N/A,0.01,0,0
+Atoshi,N/A,0.05,0,0
+Aegis YUSD,N/A,1.00,0,0
+Mango Network,N/A,0.03,0,0
+我踏马来了,N/A,0.04,0,0
+GUNZ,N/A,0.03,0,0
+Quai Network,N/A,0.05,0,0
+IOST,N/A,0.00,0,0
+Power Protocol,N/A,0.19,0,0
+EscoinToken,N/A,0.25,0,0
+BUSD,N/A,1.00,0,0
+OWB,N/A,0.09,0,0
+Hive,N/A,0.08,0,0
+Powerledger,N/A,0.07,0,0
+EthereumPoW,N/A,0.37,0,0
+APRO,N/A,0.16,0,0
+Useless Coin,N/A,0.04,0,0
+ApeX Protocol,N/A,0.28,0,0
+Ark,N/A,0.20,0,0
+Pocket Network,N/A,0.02,0,0
+Pythia,N/A,0.04,0,0
+Tagger,N/A,0.00,0,0
+SP500 tokenized ETF (xStock),N/A,683.79,0,0
+iShares Silver Trust Tokenized ETF (Ondo),N/A,77.27,0,0
+AI Companions,N/A,0.05,0,0
+ECOMI,N/A,0.00,0,0
+ChangeNOW Token,N/A,0.45,0,0
+Acurast,N/A,0.17,0,0
+Liquity BOLD,N/A,1.00,0,0
+Snek,N/A,0.00,0,0
+SwftCoin,N/A,0.00,0,0
+ConstitutionDAO,N/A,0.01,0,0
+Lagrange,N/A,0.19,0,0
+NVIDIA tokenized stock (xStock),N/A,172.72,0,0
+Alphabet tokenized stock (xStock),N/A,331.45,0,0
+Rocket Pool,N/A,1.67,0,0
+SKYAI,N/A,0.04,0,0
+Klickl Token,N/A,0.37,0,0
+Stronghold SHx,N/A,0.01,0,0
+Mango,N/A,0.03,0,0
+Audiera,N/A,0.18,0,0
+MEET48,N/A,0.03,0,0
+Corn,N/A,0.07,0,0
+Nasdaq tokenized ETF (xStock),N/A,602.40,0,0
+XPIN Network,N/A,0.00,0,0
+Burnedfi,N/A,2.92,0,0
+OLAXBT,N/A,0.16,0,0
+Orbs,N/A,0.01,0,0
+Lumera Health,N/A,3.12,0,0
+Uchain,N/A,711.39,0,0
+Celo Dollar,N/A,1.00,0,0
+Orbler,N/A,0.03,0,0
+CROSS,N/A,0.11,0,0
+Dogelon Mars,N/A,0.00,0,0
+GoPlus Security,N/A,0.01,0,0
+Spell Token,N/A,0.00,0,0
+Neiro,N/A,0.00,0,0
+Giggle Fund,N/A,35.30,0,0
+TronBank,N/A,0.35,0,0
+Brevis,N/A,0.14,0,0
+WOO,N/A,0.02,0,0
+COTI,N/A,0.01,0,0
+Chintai,N/A,0.03,0,0
+Secret,N/A,0.10,0,0
+Doodles,N/A,0.00,0,0
+BounceBit,N/A,0.04,0,0
+OpenLedger,N/A,0.16,0,0
+Space and Time,N/A,0.02,0,0
+Big Time,N/A,0.02,0,0
