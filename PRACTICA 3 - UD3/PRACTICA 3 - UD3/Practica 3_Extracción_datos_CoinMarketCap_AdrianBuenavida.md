@@ -64,14 +64,20 @@ for fila in filas:
 <br>
 
 ## Paso 3: Escalabilidad y Paginación
-Para cumplir con el objetivo de obtener 500 registros, he automatizado la navegación por las distintas páginas de CoinMarketCap, gestionando la carga dinámica de datos que realiza la web.
+Para c obtener 500 registros, he automatizado la navegación por las distintas páginas de CoinMarketCap, gestionando la carga de datos que realiza la web
 
-**Mi estrategia:**
-1. **Bucle Iterativo:** He configurado un ciclo `for` que recorre de la página 1 a la 5, inyectando el número de página dinámicamente en la URL para capturar 100 registros por parada.
-2. **Resiliencia de Código:** He implementado bloques `try/except` y validaciones de longitud de celdas para evitar errores de tipo `IndexError`. Esto permite que, si una fila tiene una estructura diferente o incompleta, el script asigne valores "N/A" y continúe sin detenerse.
-3. **Respeto de Tiempos (Sleep):** He aplicado un `time.sleep(2)` entre cada petición para simular un comportamiento humano y evitar que los sistemas de seguridad de la web bloqueen mi dirección IP.
+**estrategia:**
+
+1. **Bucle Iterativo:** He configurado un  `for` que recorre de la página 1 a la 5, inyectando el número de página dinámicamente en la URL para capturar 100 registros por parada
+
+2. **Código:** He implementado bloques `try/except` y validaciones de longitud de celdas para evitar errores de tipo `IndexError`. Esto permite que, si una fila tiene una estructura diferente o incompleta, el script asigne valores "N/A" y continúe sin detenerse
+
+3. **Tiempos (Sleep):** He aplicado un `time.sleep(2)` entre cada petición para simular un comportamiento humano y evitar que los sistemas de seguridad de la web bloqueen mi dirección IP
 
 ![ Captura3](./imagenes/3.png)
+
+
+
 
 <br>
 
@@ -86,3 +92,28 @@ df_final.to_csv("cripto_data.csv", index=False)
 
 ![ Captura4](./imagenes/4.png)
 
+
+
+<br>
+
+
+## Paso 5: Limpieza de datos
+Los datos extraídos directamente de la web venían con símbolos de dólar ("$") y comas que impedían tratarlos como valores numéricos 
+
+**estrategia:**
+
+1. **Eliminación de caracteres:** He aplicado los métodos `.replace('$', '')` y `.replace(',', '')` a los campos de Precio, Market Cap y Volumen para limpiar los textos y convertirlos en números reales
+
+2. **Filtrado:** He implementado un filtro final en el DataFrame para descartar aquellas filas que no contenían nombres válidos o que daban errores de "NaN" debido a los encabezados de la tabla o campos publicitarios
+
+**Código utilizado:**
+```python
+# Paso 5: Limpiamos los datos de símbolos y comas #taltaltal
+precio = celdas[3].text.replace('$', '').replace(',', '').strip()
+market_cap = celdas[7].text.replace('$', '').replace(',', '').strip()
+
+# filtramos filas que no tienen nombre para evitar NaNs #taltaltal
+df_final = df_final[df_final['Nombre'] != "N/A"].drop_duplicates()
+```
+
+![ Captura5](./imagenes/5.png)
