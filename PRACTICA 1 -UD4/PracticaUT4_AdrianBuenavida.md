@@ -126,3 +126,36 @@ realizar_consultas(df_limpio)
 ```
 
 ![ Captura2](./imagenes/2.png)
+
+
+
+## Preguntas de reflexión
+
+1. ¿Cuántos registros duplicados has encontrado y qué impacto tendrían en un análisis de Big Data si no se eliminaran?
+
+He detectado un total de 46 registros duplicados en el pergamino original. 
+No eliminar estos clones tendría un impacto muy negativo: las métricas seguramente estarían  sesgadas, el recuento de misiones por aldea sería falso y el cálculo del gasto de chakra total seria muy alto. 
+
+
+2. ¿Por qué es crítico convertir la columna de fecha a datetime antes de realizar búsquedas por franja horaria?
+
+Es un paso crítico porque, originalmente, la columna de tiempo se carga como una simple cadena de texto (object). Como texto, Pandas no puede "entender" qué es una hora o un minuto. 
+Al convertirla a datetime, puedo acceder a propiedades como .dt.hour, lo que me ha permitido filtrar rápidamente y precisa a todos los ninjas que se movían en la madrugada (23:00 a 05:00) 
+
+
+3. ¿Cómo has manejado los niveles de chakra > 100,000? ¿Crees que son errores de sensor o posibles técnicas prohibidas?
+
+He decidido eliminar estos registros  ya que son valores que escapan a la escala normal de un ninja. 
+Bajo mi punto de vista , lo más probable es que se trate de errores de los sensores de la puerta aunque puede que sean algunas técnicas prohibidas o algo similar
+
+
+
+## Conclusión
+
+Desde mi punto de vista, trabajar con Pandas facilita enormemente la labor de protección de la aldea, en esta práctica
+
+Realizar una búsqueda manual en un pergamino de 1.500 líneas buscando infiltrados me habría llevado horas y seguramente habría tenidfo algún error . 
+
+Gracias a este sistema, he podido limpiar miles de datos en nada de tiempo y ejecutar filtros  en una sola línea de código. 
+
+El análisis de datos con Python no es solo una mejora de eficiencia, es una necesidad para mantener la seguridad 
