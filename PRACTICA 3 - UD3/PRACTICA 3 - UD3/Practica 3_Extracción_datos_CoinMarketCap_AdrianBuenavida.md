@@ -117,3 +117,8 @@ df_final = df_final[df_final['Nombre'] != "N/A"].drop_duplicates()
 ```
 
 ![ Captura5](./imagenes/5.png)
+
+
+**Comprobación de la creación del .csv:**
+
+![ Captura5](./imagenes/6.png)
