@@ -7,6 +7,11 @@ df = pd.read_csv('registros_misiones.csv')
 #1 --> LIMPIEZA DE DATOS
 
 def limpiar_registro(df):
+    
+    
+    #Reto 0: Detectar registros duplicados
+    print(f"\n --> Registros duplicados detectados: {df.duplicated().sum()}")
+
     #Reto 1: Elimina filas duplicadas
     df = df.drop_duplicates()
     
