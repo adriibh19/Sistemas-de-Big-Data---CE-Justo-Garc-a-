@@ -28,7 +28,7 @@ import pandas as pd
 df = pd.read_csv('misiones_limpias.csv')
 
 #2. Obtenemos el perfil estadístico de la energía 
-print("--- Perfil del Ninja Promedio ---")
+print("--->> Perfil del ninja promedio")
 stats = df['Nivel_Chakra'].describe()
 print(stats)
 
@@ -68,7 +68,7 @@ plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['Nivel_Chakra'], color='orange')
 
 # 2. Añadimos títulos descriptivos para el informe #taltaltal
-plt.title('Detección de Anomalías: Nivel de Chakra')
+plt.title('Detección de OUTLIERS: Nivel de Chakra')
 plt.ylabel('Cantidad de Chakra')
 
 # 3. Guardamos la evidencia visual #taltaltal
