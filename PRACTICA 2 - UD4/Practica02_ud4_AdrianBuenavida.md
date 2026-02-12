@@ -160,8 +160,8 @@ Tras aislar los datos, he procedido a realizar un aálisis de información para 
 
 **Código utilizado:**
 ```python
-# Mostramos todos los datos del sospechoso principal 
-print("\n--- Informe Final del Sospechoso ---")
+#Mostramos todos los datos del sospechoso principal 
+print("\n---> Informe Final del Sospechoso")
 infiltrado_alto = traidores[traidores['Z-Score'] > 3]
 print(infiltrado_alto)
 ```
