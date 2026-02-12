@@ -136,7 +136,7 @@ print("\n--->> Ninjas de aldea desconocida")
 print(aldea_desconocida)
 
 #3. Super Ninjas (Fuertes: Z entre 2 y 3)
-super_ninjas = df[(df['Z-Score'].abs() > 2) & (df['Z-Score'].abs() <= 3)]
+super_ninjas = df[(df['Z-Score'].abs() > 2) & (df['Z-Score'].abs() <= 3)]   
 print("\n--->> Super ninjas detectados (Z entre 2 y 3)")
 print(super_ninjas)
 ```

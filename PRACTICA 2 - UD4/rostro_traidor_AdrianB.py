@@ -58,7 +58,7 @@ print(aldea_desconocida)
 
 
 #3. comprobamos su hay o no super ninjas (Z entre 2 y 3)
-super_ninjas = df[(df['Z-Score'].abs() > 2) & (df['Z-Score'].abs() <= 3)]
+super_ninjas = df[(df['Z-Score'].abs() > 2) & (df['Z-Score'].abs() <= 3)]  # el .abs() nos permite detectar tanto valores extremadamente altos como bajos (buscadop en internet)
 print("\n--->> Super ninjas detectados (Z entre 2 y 3)")
 
 print(super_ninjas)
@@ -67,6 +67,6 @@ print(super_ninjas)
 
 
 # Mostramos todos los datos del sospechoso principal que supera las 3 desviaciones estándar
-print("\n--- Informe Final del Sospechoso ---")
+print("\n---> Informe final del sospechoso")
 infiltrado_alto = traidores[traidores['Z-Score'] > 3]
 print(infiltrado_alto)
