@@ -5,22 +5,24 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-#1. Carga del dataset
+#1. dataset
 df = pd.read_csv('aptitudes_ninja.csv')
 
 #2. Selección de características y limpieza
     #Filtramos nulos y valores negativos si los hubiera
-df = df.dropna()
-df = df[(df['fuerza_fisica'] >= 0) & (df['control_chakra'] >= 0)]
+df = df.dropna()  #quitamos valores nulos
+df = df[(df['fuerza_fisica'] >= 0) & (df['control_chakra'] >= 0)]  #quitamos valores negativos
 
 X = df[['fuerza_fisica', 'control_chakra']]
 
-#3. Escalado de datos
+
+
+#3. Escalado de datos con el standard para que caracter tengan la misma importancia 
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 
-#PASO 2: ENCONTRAR EL “K” ÓPTIMO (MÉT. DEL CODO) 
+#PASO 2: ENCONTRAR EL “K” "perfecto/optimo"" (MÉT. DEL CODO) 
 
 #1. Creamos una lista para guardar la inercia de cada K 
 inercia = []
@@ -31,18 +33,18 @@ for k in range(1, 11):
     kmeans.fit(X_scaled)
     inercia.append(kmeans.inertia_)
 
-#3. Dibujamos el gráfico para localizar el "codo" 
+#3. Dibujamos el gráfico para localizar el "codo", donde la linea deja de bajar fuertemente
 plt.figure(figsize=(8, 5))
 plt.plot(range(1, 11), inercia, marker='o', linestyle='--', color='blue')
 plt.title('Método del codo')
-plt.xlabel('Número de unidades (K)')
+plt.xlabel('Número de unidades (K )')
 plt.ylabel('Inercia')
 
 #Guardamos  gráfico 
 plt.savefig('metodo_codo.png')
 plt.show()
 
-#Tras ver el gráfico, selecciono K=4 porque es donde la inercia deja de bajar drásticamente
+#Tras ver el gráfico, seleccionamos K=4 porque es donde la linea deja de bajar tan bruscamente
 k_optimo = 4
 
 
@@ -52,7 +54,11 @@ k_optimo = 4
 
 #1. Definimos y entrenamos el modelo con K=4 
 kmeans = KMeans(n_clusters=4, random_state=42, n_init=10)
+
+    #ponemos a cada ninja su unidad segun lo entrenado, resultado es un nº del 0 al 3 (las 3 uds que hay para clasificar a los ninjjas)
 df['unidad_id'] = kmeans.fit_predict(X_scaled)
+
+
 
 #2. Obtenemos las coordenadas de los centroides  
 centroides = kmeans.cluster_centers_
@@ -82,3 +88,21 @@ plt.ylabel('Control de chakra')
 plt.legend(title='Unidades')
 plt.savefig('mapa_unidades.png')
 plt.show()
+
+
+
+
+#PASO 5: ANÁLISIS DE PERFILES 
+
+#Calculamos la media de fuerza y chakra para cada grupo para saber quiénes son
+perfiles = df.groupby('unidad_id')[['fuerza_fisica', 'control_chakra']].mean()  #agrupamos por unidad_id y calculamos la media de las características para cada grupo
+
+print("\n --> Perfiles promedio por unidad")
+print(perfiles)
+
+
+
+#esto es para mostrar cómo se han clasificado los ninjas en las unidades, mostrando solo algunas columnas
+print("\n --> Muestra del registro clasificado")
+print(df[['nombre_sujeto', 'fuerza_fisica', 'control_chakra', 'unidad_id']].head())
+

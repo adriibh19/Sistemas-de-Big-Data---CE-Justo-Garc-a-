@@ -151,3 +151,28 @@ plt.show()
 ![ Captura4](./imagenes/4.png)
 
 <br>
+
+
+---
+
+## Paso 5: Análisis de Perfiles
+Tras ejecutar y observar las coordenadas de los centroides (las medias de cada grupo), he identificado la especialidad natural de cada una de las 4 unidades creadas:
+
+| Unidad (ID) | Perfil / Chakra | Nombre de la unidad |
+| :--- | :--- | :--- |
+| **Grupo 0** | Fuerza baja / Chakra bajo | **Unidad de apoyo** |
+| **Grupo 1** | Fuerza baja / Chakra alto | **Cuerpo médico** |
+| **Grupo 2** | Fuerza alta / Chakra bajo | **Cuerpo de asalto (taijuutsu)** |
+| **Grupo 3** | Fuerza alta / Chakra alto | **Élite** |
+
+---
+
+## Conclusión
+
+**¿Por qué elegí K=4?**
+Tras analizar el **Método del codo**, observé que la inercia cae hasta llegar al valor 4. 
+A partir de ahí, la curva se suaviza. 
+Elegir 4 grupos me permite separar de forma equilibrada a los ninjas según las cuatro combinaciones de sus habilidades (baja/baja, baja/alta, alta/baja,  alta/alta)
+
+**¿Qué representan los grupos?**
+El modelo ha dividido los grupos de forma eficiente. No solo ha identificado a los ninjas más poderosos (elite), sino que ha sabido diferenciar a los especialistas médicos de los de fuerza física. 
