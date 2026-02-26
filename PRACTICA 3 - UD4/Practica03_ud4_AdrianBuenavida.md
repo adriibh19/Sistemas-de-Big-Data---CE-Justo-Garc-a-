@@ -1,13 +1,13 @@
 # Práctica 3. Selección para la Gran Alianza (K-Means Clustering)
 **Autor:** Adrián Buenavida
 
-## Descripción de la práctica
+## Descripción 
 El objetivo de esta práctica es utilizar el aprendizaje no supervisado mediante el algoritmo **K-Means** para segmentar un dataset de shinobis
 Se busca agrupar a los personajes en unidades especializadas basándose en sus aptitudes físicas y su control de energía
 
 ---
 
-## Paso 1: Exploración y Limpieza de Datos
+## Paso 1: Exploración y limpieza de Datos
 Antes de aplicar el modelo, es necesario preparar el dataset asegurando que no existan valores nulos y que las variables estén en la misma escala
 
 
@@ -15,9 +15,9 @@ Antes de aplicar el modelo, es necesario preparar el dataset asegurando que no e
 
 1. **Carga y filtrado:** Se importa el CSV y se seleccionan únicamente las columnas numéricas relevantes: `fuerza_fisica` y `control_chakra`
 
-2. **Saneamiento:** Se verifica la ausencia de valores nulos y se asegura que no existan valores incoherentes como registros negativos.
+2. **Saneamiento:** Se verifica la ausencia de valores nulos y se asegura que no existan valores incoherentes como registros negativos
 
-3. **Normalización:** Se utiliza **StandardScaler** para estandarizar los datos. Esto es fundamental en K-Means, ya que el algoritmo se basa en distancias euclidianas y requiere que todas las variables tengan el mismo peso.
+3. **Normalización:** Se utiliza **StandardScaler** para estandarizar los datos. Esto es fundamental en K-Means, ya que el algoritmo requiere que todas las variables tengan el mismo peso (estén en el misimo rango)
 
 
 **Código utilizado:**
@@ -49,13 +49,13 @@ X_scaled = scaler.fit_transform(X)
 <br>
 ---
 
-## Paso 2: Encontrar el “K” óptimo 
+## Paso 2: Encontrar el “K” perfecto/óptimo 
 Para determinar el número ideal de unidades especializadas, he aplicado un análisis que evalúa la inercia (la suma de las distancias al cuadrado dentro de cada clúster) para diferentes valores de K
 
 **estrategia:**
 
 1. **Iteración:** He ejecutado el algoritmo K-Means para valores de K del 1 al 10.
-2. **Registro de Inercia:** He almacenado la inercia de cada modelo en una lista.
+2. **Registro de inercia:** He almacenado la inercia de cada modelo en una lista.
 3. **Visualización:** He generado un gráfico de línea para identificar el "punto de codo", donde añadir más clústeres deja de reducir la inercia de forma significativa.
 
 **Código utilizado:**
@@ -113,8 +113,8 @@ centroides = kmeans.cluster_centers_
 ---
 
 
-## Paso 4: Scatter Plot
-Para visualizar la segmentación de la Alianza, he generado un gráfico de dispersión que muestra la relación entre fuerza y chakra, destacando los centros de cada unidad
+## Paso 4: Scatter plot
+Para visualizar la segmentación, he generado un gráfico de dispersión que muestra la relación entre fuerza y chakra, destacando los centros de cada unidad
 
 **estrategia:**
 
@@ -170,7 +170,7 @@ Tras ejecutar y observar las coordenadas de los centroides (las medias de cada g
 ## Conclusión
 
 **¿Por qué elegí K=4?**
-Tras analizar el **Método del codo**, observé que la inercia cae hasta llegar al valor 4. 
+Tras analizar el **método del codo**, observé que la inercia cae hasta llegar al valor 4. 
 A partir de ahí, la curva se suaviza. 
 Elegir 4 grupos me permite separar de forma equilibrada a los ninjas según las cuatro combinaciones de sus habilidades (baja/baja, baja/alta, alta/baja,  alta/alta)
 
