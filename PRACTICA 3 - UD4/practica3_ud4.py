@@ -103,6 +103,6 @@ print(perfiles)
 
 
 #esto es para mostrar cómo se han clasificado los ninjas en las unidades, mostrando solo algunas columnas
-print("\n --> Muestra del registro clasificado")
+print("\n --> Muestra de clasificación de ninjas en las unidades que hay: ")
 print(df[['nombre_sujeto', 'fuerza_fisica', 'control_chakra', 'unidad_id']].head())
 
