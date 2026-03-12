@@ -33,7 +33,7 @@ import seaborn as sns
 df = pd.read_csv('aptitudes_ninja.csv')
 
 # 2. Selección de características y limpieza
-# Filtramos nulos y valores negativos si los hubiera
+# Filtramos nulos y valores negativos si los hubiera  
 df = df.dropna()
 df = df[(df['fuerza_fisica'] >= 0) & (df['control_chakra'] >= 0)]
 
