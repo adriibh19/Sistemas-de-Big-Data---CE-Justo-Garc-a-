@@ -10,8 +10,6 @@ He migrado el procesamiento de los datos de ninjas de un entorno local a un ento
 ## Paso 1: acceso
 He validado mediante un script local que mi entorno tiene permisos de lectura sobre el bucket de S3, asegurando que las credenciales de AWS están correctamente configuradas.
 
-**Captura de verificación:**
-![ Evidencia de conexión S3 ](./imagenes/test_conexion.png)
 
 ---
 
@@ -19,9 +17,10 @@ He validado mediante un script local que mi entorno tiene permisos de lectura so
 He configurado un Crawler en AWS Glue que rastrea el bucket `/raw` automáticamente.
 
 1. **Ruta:** `s3://anbu-data-lake-adrianb/raw/`
-2. **Resultado:** Se ha creado una tabla en el *Data Catalog* de Glue que describe el esquema de mis datos (`fuerza_fisica`, `control_chakra`, etc.).
+2. **Resultado:** Se ha creado dos tablas (raw y silver)en el *Data Catalog* de Glue que describe mis datos
 
-![ Captura Crawler ](./imagenes/crawler.png)
+![ Captura ](./imagenes/creacion_bucket.png)
+![ Captura ](./imagenes/estructura_bucket.png)
 
 ---
 
@@ -42,8 +41,8 @@ Tras la ejecución del Job, he verificado la carpeta `/silver` en S3.
 **Comparativa de rendimiento:**
 | Archivo | Tamaño original (CSV) | Tamaño optimizado (Parquet) |
 | :--- | :--- | :--- |
-| `aptitudes_ninja` | ~X KB | ~Y KB |
+| `aptitudes_ninja` | ~100 KB KB | ~27 KB |
 
-**Reflexión:** El paso a **Parquet** es fundamental en este entorno serverless. Al ser un formato columnar, permite que servicios como Amazon Athena lean solo las columnas necesarias, reduciendo drásticamente el costo por consulta comparado con leer archivos CSV planos. Esta arquitectura es escalable y profesional, ideal para manejar grandes volúmenes de datos de la Alianza Shinobi.
+![ Captura  ](./imagenes/s3_silver.png)
 
----
+**Reflexión:** El paso a **Parquet** es fundamental en este entorno . Al ser un formato de columnas, permite que servicios como Amazon Athena lean solo las columnas necesarias, reduciendo mucho el costo por consulta comparado con leer archivos CSV planos. Esta arquitectura es escalable y profesional, ideal para manejar grandes volúmenes de datos
