@@ -13,7 +13,7 @@ st.set_page_config(page_title="Centro de Inteligencia Shinobi", layout="wide")
 #Carga de datos y cache
 @st.cache_data
 def cargar_pergaminos():
-    df = pd.read_csv("players_data.csv")
+    df = pd.read_csv("tarea_ud7_proyectofinal_AdrianBuenavida/players_data.csv")
     return df
 
 
