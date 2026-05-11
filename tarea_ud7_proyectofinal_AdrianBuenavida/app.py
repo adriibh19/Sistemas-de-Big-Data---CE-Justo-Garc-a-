@@ -13,7 +13,7 @@ st.set_page_config(page_title="Centro de Inteligencia Shinobi", layout="wide")
 #Carga de datos y cache
 @st.cache_data
 def cargar_pergaminos():
-    df = pd.read_csv("tarea_ud7_proyectofinal_AdrianBuenavida/players_data.csv") #al subirlo al github tenemos metido tood dentro de esa carpeta. al principio me daba error porque no tenia buien puesta la ruta aqui
+    df = pd.read_csv("tarea_ud7_proyectofinal_AdrianBuenavida/players_data.csv")   #al subirlo al github tenemos metido tood dentro de esa carpeta. al principio me daba error porque no tenia buien puesta la ruta aqui
     return df
 
 
